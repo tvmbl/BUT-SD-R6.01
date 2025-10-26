@@ -1,0 +1,62 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="dist/reveal.css"/>
+        <link rel="stylesheet" href="dist/theme/white.css"/>
+        <style>
+            .slide-text {
+                align-content: center;
+                text-align: left;
+                font-size: 30px;
+            }
+            .two-columns {
+                display: flex;
+                align-items: center;
+            }
+            .two-columns > :first-child {
+                flex: 2;
+                padding: 20px;
+            }
+            .two-columns > :last-child {
+                flex: 1;
+                padding: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-background-image="assets/background.jpg">
+                    <h1>Big Data :</h1><br>
+                    <h2>Enjeux, stockage et extraction</h2>
+                    <h6>Module R6.01 - Année 2025-2026</h6>
+                </section>
+
+                <section data-background-image="assets/background.jpg">
+                    <h3>A propos de ce module</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div>
+                            <p>
+                                Ce cours est une introduction aux problématiques d'<b>exploitation des données</b> sur les plateformes modernes, dans le contexte aujourd'hui standard de <b>"Big Data"</b>.
+                            </p>
+                            <p>
+                                Il aborde des sujets qui vont concerner plusieurs profils au sein de l'entreprise : data engineer, data scientist, architecte, mais aussi data manager...
+                            </p>
+                        </div>
+                        <img src="assets/intro.svg"/>
+                    </div>
+                </section>
+            </div>
+        </div>
+        <script src="dist/reveal.js"></script>
+        <script src="plugin/markdown/markdown.js"></script>
+        <script>
+            Reveal.initialize({
+                plugins: [RevealMarkdown]
+            }).then(
+                () => {
+                    Reveal.slide(1);
+                }
+            );
+        </script>
+    </body>
+</html>
