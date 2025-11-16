@@ -1,5 +1,6 @@
 <html>
     <head>
+        <meta charset="UTF-8">
         <link rel="stylesheet" href="dist/reveal.css"/>
         <link rel="stylesheet" href="dist/theme/white.css"/>
         <style>
@@ -12,29 +13,33 @@
                 display: flex;
                 align-items: center;
             }
-            .two-columns > :first-child {
+            .two-columns > .bigger {
                 flex: 2;
                 padding: 20px;
             }
-            .two-columns > :last-child {
+            .two-columns > :not(.bigger) {
                 flex: 1;
                 padding: 20px;
+            }
+            .slide-background-content {
+                background-image: url("assets/background.jpg");
             }
         </style>
     </head>
     <body>
         <div class="reveal">
             <div class="slides">
-                <section data-background-image="assets/background.jpg">
+
+                <section>
                     <h1>Big Data :</h1><br>
                     <h2>Enjeux, stockage et extraction</h2>
                     <h6>Module R6.01 - Année 2025-2026</h6>
                 </section>
 
-                <section data-background-image="assets/background.jpg">
+                <section>
                     <h3>A propos de ce module</h3>
                     <div class="r-stretch slide-text two-columns">
-                        <div>
+                        <div class="bigger">
                             <p>
                                 Ce cours est une introduction aux problématiques d'<b>exploitation des données</b> sur les plateformes modernes, dans le contexte aujourd'hui standard de <b>"Big Data"</b>.
                             </p>
@@ -45,16 +50,43 @@
                         <img src="assets/intro.svg"/>
                     </div>
                 </section>
+
+                <section>
+                    <h3>A propos de moi</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <img src="assets/carte_visite.png" width="100px"/>
+                        <div class="bigger">
+                            <p>
+                                <b>Consultant</b> chez OCTO Technology (groupe Accenture) depuis 2007
+                            </p>
+                            <p>
+                                Au sein de l'équipe <b>SmartIndustry</b>, qui apporte des solutions innovantes de data et d'IA aux clients industriels d'OCTO
+                            </p>
+                            <p>
+                                <b>Plein de choses m'intéressent</b> : architecture de SI, de données, data engineering, data science, modélisation mathématique, ...
+                            </p>
+                            <p>
+                                <b>Certifications</b> Haddop et Google Cloud
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
         <script src="dist/reveal.js"></script>
-        <script src="plugin/markdown/markdown.js"></script>
+        <script src="dist/plugins/loadcontent/plugin.js"></script>
+        <script src="dist/plugins/animate/plugin.js"></script>
+        <script src="dist/plugins/animate/svg.min.js"></script>
         <script>
             Reveal.initialize({
-                plugins: [RevealMarkdown]
+                plugins: [
+                    RevealLoadContent,
+                    RevealAnimate
+                ]
             }).then(
                 () => {
-                    Reveal.slide(1);
+                    Reveal.slide(Reveal.getTotalSlides() - 1);
                 }
             );
         </script>
