@@ -9,6 +9,11 @@
                 text-align: left;
                 font-size: 30px;
             }
+            .toc {
+                align-content: center;
+                text-align: left;
+                font-size: 50px;
+            }
             .two-columns {
                 display: flex;
                 align-items: center;
@@ -73,6 +78,29 @@
                 </section>
 
                 <section>
+                    <h3>Déroulement du cours</h3>
+                    <div class="r-stretch">
+                        <div>
+                            <ul>
+                                <li>Introduction</li>
+                                <li>Anatomie des données</li>
+                                <li>Architecture d'une plateforme</li>
+                                <li>Traitement des données</li>
+                                <li>Le cloud</li>
+                                <li>Pour un usage responsable des données</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li><b>1</b> évaluation écrite (fin du 2<sup>ème</sup> CM)</li>
+                                <li><b>3</b> TD non notés</li>
+                                <li><b>1</b> TD noté</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
                     <h2>Introduction</h2>
                 </section>
 
@@ -102,7 +130,7 @@
                     <div class="r-stretch" data-animate data-load="assets/avantages.svg">
                         <!--
                             { "setup": [
-                                { "modifier": "transform", "parameters": [ {"scale": 1.5, "relativeY": 80} ] },
+                                { "modifier": "function() { resizeToContainer(this);}" },
                                 { "element": "g[data-cell-id=theme1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
                                 { "element": "g[data-cell-id=theme2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
                                 { "element": "g[data-cell-id=theme3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
@@ -112,7 +140,14 @@
                 </section>
 
                 <section>
-                    <h3>Cycle de vie des données</h3>
+                    <h3>Applications de Big Data</h3>
+                    <p class="r-stretch" style="align-content: center;">
+                        Citer quelques applications "métier"
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Données, informations, actions</h3>
                     <div class="r-stretch slide-text two-columns">
                         <div>
                             <p>
@@ -125,7 +160,7 @@
                         <div data-animate data-load="assets/cycle.svg">
                             <!--
                                 { "setup": [
-                                    { "modifier": "transform", "parameters": [ {"scale": 1.5, "relativeX": 80} ] },
+                                    { "modifier": "function() { resizeToContainer(this);}" },
                                     { "element": "g[data-cell-id=box1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
                                     { "element": "g[data-cell-id=box2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
                                     { "element": "g[data-cell-id=box3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
@@ -136,6 +171,51 @@
                     </div>
                 </section>
 
+                <section>
+                    <h3>Mise en œuvre sur une plateforme</h3>
+                    <div class="r-stretch" data-animate data-load="assets/plateforme.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=fleche1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=ingestion]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=stockage]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=traitement]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                { "element": "g[data-cell-id=exploitation]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                { "element": "g[data-cell-id=fleche2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] },
+                                { "element": "g[data-cell-id=plateforme]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "6"} ] },
+                                { "element": "g[data-cell-id=outils]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "6"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Exemple 1</h3>
+                    <div class="r-stretch" data-animate data-load="assets/plateforme_azure.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Exemple 2</h3>
+                    <div class="r-stretch" data-animate data-load="assets/plateforme_dbx.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Anatomie des données</h2>
+                </section>
+
             </div>
         </div>
         <script src="dist/reveal.js"></script>
@@ -143,6 +223,14 @@
         <script src="dist/plugins/animate/plugin.js"></script>
         <script src="dist/plugins/animate/svg.min.js"></script>
         <script>
+            resizeToContainer = function(svg) {
+                const parent = svg.parent().node;
+                const { width, height } = parent.getBoundingClientRect();
+                svg.attr("width", "");
+                svg.attr("height", "");
+                svg.attr("viewbox", "");
+            };
+
             Reveal.initialize({
                 plugins: [
                     RevealLoadContent,
