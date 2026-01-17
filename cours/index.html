@@ -7,7 +7,7 @@
             .slide-text {
                 align-content: center;
                 text-align: left;
-                font-size: 30px;
+                font-size: 25px;
             }
             .toc {
                 align-content: center;
@@ -21,6 +21,10 @@
             .two-columns > .bigger {
                 flex: 2;
                 padding: 20px;
+            }
+            .standout {
+                font-size: 50px;
+                font-weight: bold;
             }
             .two-columns > :not(.bigger) {
                 flex: 1;
@@ -216,6 +220,77 @@
                     <h2>Anatomie des données</h2>
                 </section>
 
+                <section>
+                    <h3>Une grande variété</h3>
+                    <div class="r-stretch" data-animate data-load="assets/sources.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=humains]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=machines]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=capteurs]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation & format</h3>
+                    <div class="r-stretch" data-animate data-load="assets/modelisation_format.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=concept]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=modelisation]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=format]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div data-animate data-load="assets/question.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { this.transform({ scale: 1.5, translateX: 50 }); }" }
+                                ]}
+                            -->
+                        </div>
+                        <div class="bigger standout">
+                            Quels types de modélisation connaissez-vous ?
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div>
+                            <p class="fragment" data-fragment-index="0">Le <b>modèle relationnel</b> est celui des bases de données SQL : PostgreSQL, MySQL, SQLite, ...</p>
+                            <p class="fragment" data-fragment-index="1">Il est très présent dans les systèmes informatiques des entreprises</p>
+                            <p>
+                                <span class="fragment" data-fragment-index="2">Caractéristiques :</span>
+                                <ul>
+                                    <li class="fragment" data-fragment-index="2">Notion de tables composées de colonnes</li>
+                                    <li class="fragment" data-fragment-index="3">Liens entre les tables via la notion de clef primaire / clef étrangère</li>
+                                </ul>
+                            </p>
+                        </div>
+                        <div data-animate data-load="assets/relationnel.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=bases]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                    { "element": "g[data-cell-id=tables]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=fk]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
         <script src="dist/reveal.js"></script>
@@ -224,8 +299,6 @@
         <script src="dist/plugins/animate/svg.min.js"></script>
         <script>
             resizeToContainer = function(svg) {
-                const parent = svg.parent().node;
-                const { width, height } = parent.getBoundingClientRect();
                 svg.attr("width", "");
                 svg.attr("height", "");
                 svg.attr("viewbox", "");
