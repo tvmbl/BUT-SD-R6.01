@@ -33,6 +33,10 @@
             .slide-background-content {
                 background-image: url("assets/background.jpg");
             }
+            .caption {
+                font-size: 10px;
+                text-align: right;
+            }
         </style>
     </head>
     <body>
@@ -266,12 +270,13 @@
 
                 <section>
                     <h3>Modélisation</h3>
+                    <h5>Zoom sur le modèle relationnel</h5>
                     <div class="r-stretch slide-text two-columns">
                         <div>
-                            <p class="fragment" data-fragment-index="0">Le <b>modèle relationnel</b> est celui des bases de données SQL : PostgreSQL, MySQL, SQLite, ...</p>
+                            <p class="fragment" data-fragment-index="0">Le <b>modèle relationnel</b> est celui des bases de données SQL : PostgreSQL, MySQL, SQL Server, Oracle, ...</p>
                             <p class="fragment" data-fragment-index="1">Il est très présent dans les systèmes informatiques des entreprises</p>
                             <p>
-                                <span class="fragment" data-fragment-index="2">Caractéristiques :</span>
+                                <span class="fragment" data-fragment-index="2">Quelques caractéristiques :</span>
                                 <ul>
                                     <li class="fragment" data-fragment-index="2">Notion de tables composées de colonnes</li>
                                     <li class="fragment" data-fragment-index="3">Liens entre les tables via la notion de clef primaire / clef étrangère</li>
@@ -288,6 +293,138 @@
                                 ]}
                             -->
                         </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation</h3>
+                    <h5>Zoom sur les séries temporelles</h5>
+                    <div class="r-stretch slide-text two-columns">
+                        <div>
+                            <p class="fragment" data-fragment-index="0">Une <b>série temporelle</b> (<i>time series</i>) est une suite de points de mesure, modélisée par au moins un timestamp et une valeur</p>
+                            <p class="fragment" data-fragment-index="1">Le timestamp peut être régulier ou irrégulier</p>
+                            <span class="fragment" data-fragment-index="2">
+                                <p>
+                                    Opérations intéressantes :
+                                    <ul>
+                                        <li>Rééchantillonnage (<i>resampling</i>)</li>
+                                        <li>Prédiction des prochains points (<i>forecast</i>)</li>
+                                        <li>Elimination de valeurs aberrantes</li>
+                                        <li>Lissage</li>
+                                        <li>Analyse fréquentielle</li>
+                                        <li>...</li>
+                                    </ul>
+                                </p>
+                            </span>
+                        </div>
+                        <div data-animate data-load="assets/timeseries.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                     { "element": "g", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation</h3>
+                    <h5>Zoom sur les graphes</h5>
+                    <div class="r-stretch slide-text two-columns">
+                        <div>
+                            <p class="fragment" data-fragment-index="0">Les <b>graphes</b> (ou <b>réseaux</b>) représentent des objets ou des concepts (<i>noeuds</i>), liés entre eux par des relations (<i>arcs</i>)</p>
+                            <span class="fragment" data-fragment-index="1">
+                                <p>
+                                    Opérations intéressantes :
+                                    <ul>
+                                        <li>Parcours en largeur (BFS) ou en profondeur (DFS)</li>
+                                        <li>Recherche de chemins</li>
+                                        <li>Calculs d’influence de noeuds (ex. PageRank)</li>
+                                        <li>Recherche de sous-graphes</li>
+                                        <li>...</li>
+                                        <li>Voire des modèles de deep learning (GNN) !</li>
+                                    </ul>
+                                </p>
+                            </span>
+                        </div>
+                        <div class="fragment" data-fragment-index="0">
+                            <img src="assets/graph.png" width="80%">
+                            <p class="caption">https://studentwork.prattsi.org/infovis/visualization/weak-ties-network-analysis-of-twitch-data/</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation</h3>
+                    <h5>Zoom sur les vecteurs</h5>
+                    <div class="r-stretch slide-text two-columns">
+                        <div>
+                            <span class="fragment" data-fragment-index="0">
+                                <p class="fragment" data-fragment-index="0">Les <b>vecteurs</b> ou <b><i>embeddings</i></b> encodent des données non structurées (mots d’un texte, documents, images, ...) au sein d’un corpus</p>
+                                <ul>
+                                    <li>Exemple : [0.1, 2.32, -1.76, 0.8]</li>
+                                </ul>
+                            </span>
+                            <p class="fragment" data-fragment-index="1">Ils sont au coeur des modèles d'IA type ChatGPT</p>
+                            <span class="fragment" data-fragment-index="2">
+                                <p>
+                                    Opérations intéressantes :
+                                    <ul>
+                                        <li>Calcul de proximité via la distance entre 2 vecteurs</li>
+                                        <li>Recherche des voisins proches</li>
+                                        <li>Classification de documents ou concepts</li>
+                                    </ul>
+                                </p>
+                            </span>
+                        </div>
+                        <div class="fragment" data-fragment-index="0">
+                            <img src="assets/embeddings.png">
+                            <p class="caption">http://colah.github.io/posts/2015-01-Visualizing-Representations/</p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation</h3>
+                    <h5>Notion de structuration</h5>
+                    <div class="slide-text">
+                        <p>Au niveau de la modélisation, on distingue en général 3 niveaux de structuration :</p>
+                    </div>
+                    <div class="r-stretch" data-animate data-load="assets/structuration.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=non-struct]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=semi]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=struct]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Modélisation</h3>
+                    <h5>Partitionnement</h5>
+                    <div class="slide-text">
+                        <p class="fragment" data-fragment-index="0"><b>Principe</b> : “découper” les données selon un ou plusieurs champs, la <b>clef de partitionnement</b></p>
+                        <ul class="fragment" data-fragment-index="1">
+                            <li>Exemples fréquents : partitionnement par année (temporel), par pays (géographique)</li>
+                        </ul>
+                    </div>
+                    <div class="r-stretch" data-animate data-load="assets/partitionnement.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=partitions]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=question]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] }
+                            ]}
+                        -->
+                    </div>
+                    <div class="slide-text">
+                        <p class="fragment" data-fragment-index="2">Cela permet aux traitements de cibler le sous-ensemble des données utiles en ignorant le reste : gain de performance</p>
+                        <p class="fragment" data-fragment-index="3">Les partitions peuvent être imbriquées à plusieurs niveaux (pays > année > mois > jour > …)</p>
+                        <p class="fragment" data-fragment-index="4">La clef de partitionnement doit être adaptée aux traitements, et présenter un bon niveau de finesse (ni trop grossier, ni trop fin)</p>
                     </div>
                 </section>
 
