@@ -4,6 +4,10 @@
         <link rel="stylesheet" href="dist/reveal.css"/>
         <link rel="stylesheet" href="dist/theme/white.css"/>
         <style>
+            .subtitle {
+                font-size: 40px;
+                color: rgb(13, 13, 135);
+            }
             .slide-text {
                 align-content: center;
                 text-align: left;
@@ -26,16 +30,31 @@
                 font-size: 50px;
                 font-weight: bold;
             }
+            .emphasis {
+                font-size: 40px;
+                font-weight: bold;
+            }
             .two-columns > :not(.bigger) {
                 flex: 1;
                 padding: 20px;
             }
             .slide-background-content {
                 background-image: url("assets/background.jpg");
+                opacity: 50%;
             }
             .caption {
                 font-size: 10px;
                 text-align: right;
+            }
+            table {
+                font-size: 20px;
+            }
+            th {
+                background-color: rgb(108, 188, 213, .5);
+                font-size: 22px;
+            }
+            td {
+                background-color: rgba(255, 255, 255, .5);
             }
         </style>
     </head>
@@ -93,7 +112,7 @@
                                 <li>Introduction</li>
                                 <li>Anatomie des données</li>
                                 <li>Architecture d'une plateforme</li>
-                                <li>Traitement des données</li>
+                                <li>Les traitements en Big Data</li>
                                 <li>Le cloud</li>
                                 <li>Pour un usage responsable des données</li>
                             </ul>
@@ -148,7 +167,7 @@
                 </section>
 
                 <section>
-                    <h3>Applications de Big Data</h3>
+                    <h3>Activités & métiers de la data</h3>
                     <div class="r-stretch slide-text two-columns">
                         <div data-animate data-load="assets/question.svg">
                             <!--
@@ -158,7 +177,7 @@
                             -->
                         </div>
                         <div class="bigger standout">
-                            Citer quelques applications "métier"
+                            Quels sont les activités et métiers de la data ?
                         </div>
                     </div>
                 </section>
@@ -248,6 +267,9 @@
 
                 <section>
                     <h2>Anatomie des données</h2>
+                    <p class="fragment subtitle">
+                        Comment décrire et organiser les données
+                    </p>
                 </section>
 
                 <section>
@@ -299,8 +321,12 @@
                     <h5>Zoom sur le modèle relationnel</h5>
                     <div class="r-stretch slide-text two-columns">
                         <div>
-                            <p class="fragment" data-fragment-index="0">Le <b>modèle relationnel</b> est celui des bases de données SQL : PostgreSQL, MySQL, SQL Server, Oracle, ...</p>
-                            <p class="fragment" data-fragment-index="1">Il est très présent dans les systèmes informatiques des entreprises</p>
+                            <p class="fragment" data-fragment-index="0">
+                                Le <b>modèle relationnel</b> est celui des bases de données SQL : PostgreSQL, MySQL, SQL Server, Oracle, ...
+                            </p>
+                            <p class="fragment" data-fragment-index="1">
+                                Il est très présent dans les systèmes informatiques des entreprises
+                            </p>
                             <p>
                                 <span class="fragment" data-fragment-index="2">Quelques caractéristiques :</span>
                                 <ul>
@@ -327,8 +353,12 @@
                     <h5>Zoom sur les séries temporelles</h5>
                     <div class="r-stretch slide-text two-columns">
                         <div>
-                            <p class="fragment" data-fragment-index="0">Une <b>série temporelle</b> (<i>time series</i>) est une suite de points de mesure, modélisée par au moins un timestamp et une valeur</p>
-                            <p class="fragment" data-fragment-index="1">Le timestamp peut être régulier ou irrégulier</p>
+                            <p class="fragment" data-fragment-index="0">
+                                Une <b>série temporelle</b> (<i>time series</i>) est une suite de points de mesure, modélisée par au moins un timestamp et une valeur
+                            </p>
+                            <p class="fragment" data-fragment-index="1">
+                                Le timestamp peut être régulier ou irrégulier
+                            </p>
                             <span class="fragment" data-fragment-index="2">
                                 <p>
                                     Opérations intéressantes :
@@ -359,7 +389,9 @@
                     <h5>Zoom sur les graphes</h5>
                     <div class="r-stretch slide-text two-columns">
                         <div>
-                            <p class="fragment" data-fragment-index="0">Les <b>graphes</b> (ou <b>réseaux</b>) représentent des objets ou des concepts (<i>noeuds</i>), liés entre eux par des relations (<i>arcs</i>)</p>
+                            <p class="fragment" data-fragment-index="0">
+                                Les <b>graphes</b> (ou <b>réseaux</b>) représentent des objets ou des concepts (<i>noeuds</i>), liés entre eux par des relations (<i>arcs</i>)
+                            </p>
                             <span class="fragment" data-fragment-index="1">
                                 <p>
                                     Opérations intéressantes :
@@ -387,7 +419,9 @@
                     <div class="r-stretch slide-text two-columns">
                         <div>
                             <span class="fragment" data-fragment-index="0">
-                                <p>Les <b>vecteurs</b> ou <b><i>embeddings</i></b> encodent des données non structurées (mots d’un texte, documents, images, ...) au sein d’un corpus</p>
+                                <p>
+                                    Les <b>vecteurs</b> ou <b><i>embeddings</i></b> encodent des données non structurées (mots d’un texte, documents, images, ...) au sein d’un corpus
+                                </p>
                                 <ul>
                                     <li>Exemple : [0.1, 2.32, -1.76, 0.8]</li>
                                 </ul>
@@ -415,7 +449,9 @@
                     <h3>Modélisation</h3>
                     <h5>Notion de structuration</h5>
                     <div class="slide-text">
-                        <p>Au niveau de la modélisation, on distingue en général 3 niveaux de structuration :</p>
+                        <p>
+                            Au niveau de la modélisation, on distingue en général 3 niveaux de structuration :
+                        </p>
                     </div>
                     <div class="r-stretch" data-animate data-load="assets/structuration.svg">
                         <!--
@@ -434,7 +470,9 @@
                     <h5>Partitionnement</h5>
                     <div class="slide-text">
                         <span class="fragment" data-fragment-index="0">
-                            <p><b>Principe</b> : “découper” les données selon un ou plusieurs champs, la <b>clef de partitionnement</b></p>
+                            <p>
+                                <b>Principe</b> : “découper” les données selon un ou plusieurs champs, la <b>clef de partitionnement</b>
+                            </p>
                             <ul>
                                 <li>Exemples fréquents : partitionnement par année (temporel), par pays (géographique)</li>
                             </ul>
@@ -450,16 +488,24 @@
                         -->
                     </div>
                     <div class="slide-text">
-                        <p class="fragment" data-fragment-index="1">Cela permet aux traitements de cibler le sous-ensemble des données utiles en ignorant le reste : gain de performance</p>
-                        <p class="fragment" data-fragment-index="2">Les partitions peuvent être imbriquées à plusieurs niveaux (pays > année > mois > jour > …)</p>
-                        <p class="fragment" data-fragment-index="3">La clef de partitionnement doit être adaptée aux traitements, et présenter un bon niveau de finesse (ni trop grossier, ni trop fin)</p>
+                        <p class="fragment" data-fragment-index="1">
+                            Cela permet aux traitements de cibler le sous-ensemble des données utiles en ignorant le reste : gain de performance
+                        </p>
+                        <p class="fragment" data-fragment-index="2">
+                            Les partitions peuvent être imbriquées à plusieurs niveaux (pays > année > mois > jour > ...)
+                        </p>
+                        <p class="fragment" data-fragment-index="3">
+                            La clef de partitionnement doit être adaptée aux traitements, et présenter un bon niveau de finesse (ni trop grossier, ni trop fin)
+                        </p>
                     </div>
                 </section>
 
                 <section>
                     <h3>Modélisation et format par l'usage</h3>
                     <div class="slide-text">
-                        <p>L'efficacité d'un traitement dépend en grande partie de <b>l'adéquation</b> entre la logique du traitement, la modélisation des données et le format dans lequel elle est encodée</p>
+                        <p>
+                            L'efficacité d'un traitement dépend en grande partie de <b>l'adéquation</b> entre la logique du traitement, la modélisation des données et le format dans lequel elle est encodée
+                        </p>
                     </div>
                     <div class="r-stretch" data-animate data-load="assets/usage.svg">
                         <!--
@@ -479,7 +525,9 @@
                     <h5>Zoom sur Parquet</h5>
                     <div class="r-stretch slide-text two-columns">
                         <div class="bigger">
-                            <p class="fragment" data-fragment-index="0"><b>Parquet</b> est un format de fichier optimisé pour les traitements de type “big data”. Il stocke des données tabulaires.</p>
+                            <p class="fragment" data-fragment-index="0">
+                                <b>Parquet</b> est un format de fichier optimisé pour les traitements de type “big data”. Il stocke des données tabulaires.
+                            </p>
                             <ul>
                                 <li class="fragment" data-fragment-index="1">Souple pour la modélisation : structuré, semi-structuré, partitionnable</li>
                                 <li class="fragment" data-fragment-index="2">Compresse efficacement donc rapide à lire</li>
@@ -527,6 +575,250 @@
                                     { "element": "g[data-cell-id=domains]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
                                     { "element": "g[data-cell-id=app]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
                                     { "element": "g[data-cell-id=product]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Qualité de données</h3>
+                    <p class="slide-text">
+                        Les problèmes de qualité sont inévitables et biaisent les analyses. Quand on ne peut corriger à la source, on compense :
+                    </p>
+                    <div class="r-stretch slide-text">
+                        <table>
+                            <tr>
+                                <th>Problème</th>
+                                <th>Suggestions</th>
+                            </tr>
+                            <tr>
+                                <td><span class="fragment"><b>Valeurs manquantes</b></span></td>
+                                <td><span class="fragment">Interpoler, remplir (“imputer”) avec des moyennes ou du machine learning</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="fragment"><b>Bruit ou valeurs aberrantes</b></span></td>
+                                <td><span class="fragment">Lisser (moyenne ou médiane), éliminer les anomalies (outliers statistiques), utiliser des modèles robustes</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="fragment"><b>Doublons</b></span></td>
+                                <td><span class="fragment">Stratégie à choisir (choisir au hasard, garder la version la plus récente, fusionner les doublons, choisir au hasard...)</span></td>
+                            </tr>
+                            <tr>
+                                <td><span class="fragment"><b>Liens (clefs étrangères) manquants</b></span></td>
+                                <td><span class="fragment"> Ajouter une source de données qui possède les liens, rapprocher selon des critères heuristiques (ex. date)</td>
+                            </tr>
+                            <tr>
+                                <td><span class="fragment"><b>Problèmes de texte (abus d'abréviations, orthographe, mélange de langues, ...)</b></span></td>
+                                <td><span class="fragment">Pré-traiter, utiliser des modèles pré-entraînés sur ces corpus problématiques</span></td>
+                            </tr>
+                        </table>
+                    </div>
+                    <p class="slide-text">
+                        Quand les données sont suffisamment nombreuses, et les exceptions rares, on peut aussi les écarter.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Gouvernance des données</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div class="bigger">
+                            <p>
+                                <b>Principe</b> : Mettre en place des règles et des processus garantissant un usage efficace des données, dans le respect des contraintes de qualité, de sécurité, de confidentialité, etc.
+                            </p>
+                        </div>
+                        <div data-animate data-load="assets/ecu.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Gouvernance des données</h3>
+                    <h5>Exemple</h5>
+                    <div class="r-stretch slide-text two-columns">
+                        <div data-animate data-load="assets/question.svg" class="fragment" data-fragment-index="0">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { this.transform({ scale: 1.5, translateX: 50 }); }" }
+                                ]}s
+                            -->
+                        </div>
+                        <div class="bigger">
+                            <p>Supposons qu’un opérateur téléphonique vende à des tiers les cartes de fréquentation des rues d’une ville, en s’appuyant sur le bornage GPS ou cellulaire de ses abonnés
+                            <ul>
+                                <li><u>Usage</u> : optimiser la localisation des commerces dans les quartiers fréquentés</li>
+                            </ul>
+                            <p class="emphasis fragment" data-fragment-index="0">
+                                Quelles questions de gouvernance cela soulève-t-il ?
+                            </p>
+                        </div>
+                    </div>
+                    <div>
+                        <img src="assets/heatmap.png" width="200%" style="opacity: 60%;"/>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Gouvernance des données</h3>
+                    <h5>Exemple</h5>
+                    <div class="r-stretch slide-text">
+                        <p>
+                            Quelques idées :
+                        </p>
+                        <ul>
+                            <li>Respect de la vie privée par anonymisation des terminaux et bornages</li>
+                            <li>Obligation de restituer ou supprimer les données d’un abonné sur demande (RGPD)</li>
+                            <li>Suivi et maintien d’une qualité de données en cohérence avec le prix du service</li>
+                            <li>Procédures de correction de données aberrantes</li>
+                            <li>Maîtrise des coûts en évitant l’accumulation ad vitam aeternam de données devenues caduques</li>
+                            <li>Garantie que d’autres applications internes “sauvages” ne détournent pas le jeu de données (RGPD, encore)</li>
+                            <li>Documentation à jour du jeu de données et des moyens techniques d’accès (API)</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <img src="assets/heatmap.png" width="200%" style="opacity: 60%;"/>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Architecture d'une plateforme</h2>
+                    <p class="fragment subtitle">
+                        Les briques logicielles qui composent une plateforme de données moderne
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Plateforme Big Data (rappel)</h3>
+                    <div class="r-stretch" data-animate data-load="assets/plateforme.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Ingestion</h3>
+                    <div class="r-stretch slide-text">
+                        <p>
+                            Les composants d'ingestion amènent la donnée vers le stockage de la plateforme. En règle générale, ils font une copie à l'identique des données brutes récupérées.
+                        </p>
+                        <p class="fragment">
+                            On rencontre souvent :
+                        </p>
+                        <ul>
+                            <li class="fragment">des <b>espaces</b> pour déposer des fichiers directement sur un data lake</li>
+                            <li class="fragment">des <b>API</b> que l'on peut appeler de l'extérieur pour ajouter des données</li>
+                            <li class="fragment">des <b>ETL</b> (<i>Extract - Transform - Load</i>) : logiciels faisant régulièrement des copies de bases de données ou d'ordonnancer des copies de fichiers</li>
+                            <li class="fragment">des <b>files de messages</b> (<i>brokers</i>) pour l'ingestion en temps réel</li>
+                            <li class="fragment">des <b>programmes ad-hoc</b> pour récupérer des données spécifiques</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Stockage</h3>
+                    <div class="r-stretch slide-text">
+                        <p>
+                            Les composants de stockage ont pour mission d'offrir de vastes espaces où les données d'entrée, produites, etc. peuvent s'accumuler de manière fiable.
+                        </p>
+                        <p class="fragment">
+                            Outre la persistance de ces données, ils gèrent aussi le cycle de vie des données (ex. archivage, purge), leur chiffrement et les droits d'accès.
+                        </p>
+                        <p class="fragment">
+                            Quelques types de stockage courants :
+                        </p>
+                        <ul>
+                            <li class="fragment">le <b>stockage "objet"</b> pour des gros fichiers et les <b>data lakes</b></li>
+                            <li class="fragment">les <b>bases de données</b> relationnelles ou non (NoSQL)</li>
+                            <li class="fragment">les <b>data warehouses</b>, qui sont comme des grosses bases de données pour les analyses profondes</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Traitement</h3>
+                    <div class="r-stretch slide-text">
+                        <p>
+                            Cette partie assure la bonne exécution du code des traitements demandés à la plateforme. Le code doit être adapté à la plateforme en question.
+                        </p>
+                        <p class="fragment">
+                            On va y trouver deux grands types de composants :
+                        </p>
+                        <ul>
+                            <li class="fragment">les <b>moteurs de calcul</b> exécutent des traitements unitaires (<i>jobs</i>) de manière performante</li>
+                            <li class="fragment">les <b>ordonnanceurs</b> ou <b>orchestrateurs</b> exécutent des traitements composés de plusieurs jobs, les planifient, ..., sous forme de <i>pipelines</i>, ou <i>workflows</i></li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Exploitation</h3>
+                    <div class="r-stretch slide-text">
+                        <p>
+                            Ce sont tous les outils, langages et librairies permettant d'interagir avec la plateforme pour récupérer les données et résultats de calcul. Ils peuvent être fournis par la plateforme, ou être en dehors et s'y connecter.
+                        </p>
+                        <p class="fragment">
+                            Ces outils peuvent déclencher des traitements pour calculer des résultats temporaires (ex. requête SQL d'analyse).
+                        </p>
+                        <p class="fragment">
+                            On va y trouver en particulier :
+                        </p>
+                        <ul>
+                            <li class="fragment">des <b>SDK</b> (<i>Software Development Kits</i>) à utiliser dans les programmes R / Python / ... qui accèdent au stockage, déclenchent des traitements, etc.</li>
+                            <li class="fragment">des logiciels de <b>reporting</b> (PowerBI, Tableau, ...) ou d'<b>analyse</b> (Dataiku, Excel)</li>
+                            <li class="fragment">des <b>requêteurs</b> type SQL</li>
+                            <li class="fragment">les <b>ETL</b>, déjà cités pour l'ingestion, font aussi partie de cette catégorie</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Notion d'offre de services</h3>
+                    <div class="r-stretch slide-text">
+                        <p class="fragment">
+                            En tant qu'utilisateurs de la plateforme en entreprise, les outils assurant ingestion, stockage, traitement et exploitation font partie d'un <b>catalogue d'offre de services</b>.
+                        </p>
+                        <p class="fragment">
+                            Ils sont assortis :
+                        </p>
+                        <ul>
+                            <li class="fragment">de la documentation sur la plateforme</li>
+                            <li class="fragment">de règles de bonne utilisation (gouvernance des données, sécurité, ...)</li>
+                            <li class="fragment">de kits de démarrage et tutoriels pour démarrer rapidement</li>
+                            <li class="fragment">d'un support technique fourni par une équipe dédiée</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Les traitements en Big Data</h2>
+                    <p class="fragment subtitle">
+                        Comprendre comment les plateformes arrivent à traiter efficacement de gros volumes de données
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Performance<u>s</u> d'un traitement ?</h3>
+                    <p class="slide-text">
+                        Qu'est-ce qui mesure les performances du traitement ?
+                    </p>
+                    <div class="r-stretch">
+                        <div data-animate data-load="assets/perfs.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=latence]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=scalabilite]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=infra]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=conso]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=co2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] }
                                 ]}
                             -->
                         </div>
