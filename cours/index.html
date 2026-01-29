@@ -825,6 +825,114 @@
                     </div>
                 </section>
 
+                <section>
+                    <h3>En série vs en parallèle</h3>
+                    <div class="r-stretch">
+                        <div data-animate data-load="assets/serie-parallele.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=serie]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                    { "element": "g[data-cell-id=parallele]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Parallélisation</h3>
+                    <p class="slide-text">
+                        <b>Principe</b> : découper un gros travail en tâches plus petites et exécuter de manière indépendante les parties qui peuvent l'être.
+                    </p>
+                    <p class="slide-text fragment" data-fragment-index="0">
+                        Il y a souvent des tâches qui agrègent les résultats indépendants pour produire un résultat plus général. Ce sont des des <b>goulets d'étranglement</b> à surveiller.
+                    </p>
+                    <div class="r-stretch">
+                        <div data-animate data-load="assets/parallele.svg" class="fragment" data-fragment-index="0">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=dep1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=dep2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=dep3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                    <p class="slide-text fragment" data-fragment-index="1">
+                        Si l'indépendance n'est pas vérifiée, on perd en efficacité.
+                    </p>
+                    <div data-animate data-load="assets/parallele-cas.svg">
+                        <!--
+                            { "setup": [
+                                { "element": "g[data-cell-id=glop]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=pas-glop]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Quand le volume augmente</h3>
+                    <div class="r-stretch two-columns slide-text">
+                        <div>
+                            <p class="fragment" data-fragment-index="0"><b>Scale-up</b> : on augmente la puissance du matériel :</p>
+                            <ul>
+                                <li class="fragment" data-fragment-index="1">un CPU plus rapide ou avec plus de coeurs</li>
+                                <li class="fragment" data-fragment-index="2">un GPU pour aller plus vite</li>
+                                <li class="fragment" data-fragment-index="3">plus de mémoire RAM</li>
+                                <li class="fragment" data-fragment-index="4">des disques plus gros ou plus rapides</li>
+                                <li class="fragment" data-fragment-index="4">...</li>
+                            </ul>
+                            <p class="fragment" data-fragment-index="5">
+                                ... mais on finit par atteindre une limite physique indépassable !
+                            </p>
+                        </div>
+                        <div class="fragment" data-fragment-index="1" data-animate data-load="assets/scale-up.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=step1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=server1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=step2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=server2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=step3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=server3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=step4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=server4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=limit]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Quand le volume augmente</h3>
+                    <div class="r-stretch two-columns slide-text">
+                        <div>
+                            <p class="fragment" forced-fragment-index="0"><b>Scale-out</b> : on multiplie le matériel (serveurs).</p>
+                            <p class="fragment" forced-fragment-index="1">Le système devient distribué : on parle de <b>cluster</b>, composé de <b>noeuds</b> pouvant calculer en parallèle.</p>
+                            <p class="fragment" forced-fragment-index="6">En théorie, la capacité du cluster est proportionnelle au nombre de noeuds, c'est le concept de <b>scalabilité linéaire</b></p>
+                            <p class="fragment" forced-fragment-index="7">Les plateformes big data sont toutes distributées, et sur le cloud la taille des clusters est réglable à la demande.</p>
+                        </div>
+                        <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/scale-out.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=step1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=step2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=step3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=step4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=step5]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] },
+                                    { "element": "g[data-cell-id=step6]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "6"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </div>
         <script src="dist/reveal.js"></script>
@@ -838,16 +946,34 @@
                 svg.attr("viewbox", "");
             };
 
+            // Reveal.js will sort fragment indices, filling them in when they are not specified with "data-fragment-index" and
+            // forcing increments to 1 (no gaps). But the sorting function does not take into account indices set programmatically
+            // by Animate modifiers, making things out of order.
+            // By using a "forced-fragment-index" attribute instead; we can reset it the indices to any values after the sort
+            // routine has executed.
+            applyForcedFragmentIndex = function() {
+                fragments = document.querySelectorAll("[forced-fragment-index]");
+                fragments.forEach(fragment => {
+                    //console.log(fragment.getAttribute("data-fragment-index"), "->", fragment.getAttribute("forced-fragment-index"));
+                    fragment.setAttribute("data-fragment-index", fragment.getAttribute("forced-fragment-index"));
+                });
+            };
+
+            applyForcedFragmentIndex();
+
             Reveal.initialize({
                 plugins: [
                     RevealLoadContent,
                     RevealAnimate
-                ]
+                ],
+                slideNumber: true
             }).then(
                 () => {
+                    applyForcedFragmentIndex();
                     Reveal.slide(Reveal.getTotalSlides() - 1);
                 }
             );
+
         </script>
     </body>
 </html>
