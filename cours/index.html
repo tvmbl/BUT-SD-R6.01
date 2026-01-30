@@ -3,60 +3,7 @@
         <meta charset="UTF-8">
         <link rel="stylesheet" href="dist/reveal.css"/>
         <link rel="stylesheet" href="dist/theme/white.css"/>
-        <style>
-            .subtitle {
-                font-size: 40px;
-                color: rgb(13, 13, 135);
-            }
-            .slide-text {
-                align-content: center;
-                text-align: left;
-                font-size: 25px;
-            }
-            .toc {
-                align-content: center;
-                text-align: left;
-                font-size: 50px;
-            }
-            .two-columns {
-                display: flex;
-                align-items: center;
-            }
-            .two-columns > .bigger {
-                flex: 2;
-                padding: 20px;
-            }
-            .standout {
-                font-size: 50px;
-                font-weight: bold;
-            }
-            .emphasis {
-                font-size: 40px;
-                font-weight: bold;
-            }
-            .two-columns > :not(.bigger) {
-                flex: 1;
-                padding: 20px;
-            }
-            .slide-background-content {
-                background-image: url("assets/background.jpg");
-                opacity: 50%;
-            }
-            .caption {
-                font-size: 10px;
-                text-align: right;
-            }
-            table {
-                font-size: 20px;
-            }
-            th {
-                background-color: rgb(108, 188, 213, .5);
-                font-size: 22px;
-            }
-            td {
-                background-color: rgba(255, 255, 255, .5);
-            }
-        </style>
+        <link rel="stylesheet" href="cours.css"/>
     </head>
     <body>
         <div class="reveal">
@@ -929,6 +876,210 @@
                                     { "element": "g[data-cell-id=step6]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "6"} ] }
                                 ]}
                             -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Mettre le curseur</h3>
+                    <h5>Ordres de grandeur</h5>
+                    <div class="r-stretch" data-animate data-load="assets/scale-zones.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=scale-up]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=scale-out]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=zone-grise]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Estimations de volume</h3>
+                    <h5>Pourquoi tant d'importance accordée au volume ?</h5>
+                    <div class="r-stretch slide-text">
+                        <p class="fragment" data-fragment-index="0">
+                            Pour simplifier, plaçons-nous dans le cas d'un traitement en série sur un seul noeud de calcul.
+                        </p>
+                        <p class="fragment" data-fragment-index="1">
+                            Plus la donnée est "loin" (disque, réseau) plus son accès est lent. Ces lenteurs sont multipliées si l'algorithme doit faire des allers-retours à la source.
+                        </p>
+                        <p class="fragment" data-fragment-index="2">
+                            Un volume important signifie :
+                        </p>
+                        <ul>
+                            <li class="fragment" data-fragment-index="2">plus de calculs à faire (of course)</li>
+                            <li class="fragment" data-fragment-index="3">plus d'octets à transférer depuis le disque ou le réseau</li>
+                            <li class="fragment" data-fragment-index="4">plus de données intermédiaires à stocker sur disque si la mémoire est pleine</li>
+                        </ul>
+                        <p class="fragment" data-fragment-index="5">
+                            <cite>Rien ne sera jamais aussi rapide qu'un traitement dont les données tiennent entièrement en mémoire RAM !</cite>
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Estimations de volume</h3>
+                    <h5>Comment faire les 2 estimations suivantes ?</h5>
+                    <div class="r-stretch slide-text two-columns">
+                        <div data-animate data-load="assets/question.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { this.transform({ scale: 1.5, translateX: 50 }); }" }
+                                ]}
+                            -->
+                        </div>
+                        <div class="bigger" data-animate data-load="assets/volume-csv-np.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Estimations de volume</h3>
+                    <h5>Version CSV</h5>
+                    <p class="slide-text">
+                        <b>CSV</b> : tout est stocké en chaînes de caractères, même les nombres (on privilégie la lisibilité plutôt que l'efficacité).
+                    </p>
+                    <div class="r-stretch" data-animate data-load="assets/volume-csv.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=col1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=col2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=col3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=col4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
+                            ]}
+                        -->
+                    </div>
+                    <div class="slide-text">
+                        <ul class="fragment" forced-fragment-index="4">
+                            <li class="deduction"><b>Moyenne</b> : 10 000 x (17 + 24 + 4 + 2) = 459 Ko</li>
+                            <li class="deduction"><b>Pessimiste</b> : 10 000 x (34 + 47 + 4 + 2) = 850 Ko</li>
+                        </ul>
+                        <p class="fragment" forced-fragment-index="5">
+                            ⚠️ Simplification : 1 caractère = 1 octet
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Estimations de volume</h3>
+                    <h5>Version NumPy</h5>
+                    <p class="slide-text">
+                        <b>NumPy</b> : les nombres sont stockés en représentation machine. On choisit le type de représentation en fonction des contraintes connues.
+                    </p>
+                    <div class="r-stretch" data-animate data-load="assets/volume-np.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=col1-np]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=col2-np]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=col3-np]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=col4-np]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
+                            ]}
+                        -->
+                    </div>
+                    <div class="slide-text">
+                        <ul class="fragment" forced-fragment-index="4">
+                            <li class="deduction"><b>Estimation</b> : 10 000 x (2 + 4 + 2 + 1) = 88 Ko</li>
+                            <li><i>Rappel</i> : 459 Ko en moyenne pour le CSV</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Estimations de volume</h3>
+                    <h5>Un exemple plus réaliste</h5>
+                    <div class="r-stretch slide-text">
+                        <div class="two-columns align-top">
+                            <div>
+                                <p>Des séries temporelles :</p>
+                                <ul>
+                                    <li>67 équipements</li>
+                                    <li>14 capteurs par équipement</li>
+                                    <li>1 mesure/capteur/seconde</li>
+                                    <li>10 ans d'historique</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <table class="small-table">
+                                    <tr>
+                                        <th>ID Eqpt</th>
+                                        <th>ID Capteur</th>
+                                        <th>Timestamp</th>
+                                        <th>Valeur</th>
+                                    </tr>
+                                    <tr>
+                                        <td>84</td>
+                                        <td>4091</td>
+                                        <td>2024-12-01 12:32:17</td>
+                                        <td>7.33991</td>
+                                    </tr>
+                                    <tr>
+                                        <td>84</td>
+                                        <td>4091</td>
+                                        <td>2024-12-01 12:32:18</td>
+                                        <td>7.42819</td>
+                                    </tr>
+                                    <tr>
+                                        <td>84</td>
+                                        <td>4091</td>
+                                        <td>2024-12-01 12:32:19</td>
+                                        <td>7.35710</td>
+                                    </tr>
+                                    <tr>
+                                        <td>84</td>
+                                        <td>4091</td>
+                                        <td>2024-12-01 12:32:20</td>
+                                        <td>7.32399</td>
+                                    </tr>
+                                    <tr>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                        <td>...</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="two-columns align-top">
+                            <div>
+                                <span class="fragment">
+                                    <p>
+                                        <b>Enregistrements :</b>
+                                    </p>
+                                    <code>
+                                        &nbsp;&nbsp;67 équipements<br/>
+                                        x 14 capteurs<br/>
+                                        x 10 ans<br/>
+                                        x 365 jours<br/>
+                                        x 24 heures<br/>
+                                        x 60 minutes<br/>
+                                        x 60 secondes<br/>
+                                        = 295 807 680 000 mesures
+                                    </code>
+                                </span>
+                            </div>
+                            <div>
+                                <span class="fragment">
+                                    <p><b>Taille unitaire encodée (octets) :</b></p>
+                                    <code>
+                                        &nbsp;&nbsp;4 pour <i>ID Eqpt</i> (&lt; 2<sup>32</sup>)<br/>
+                                        + 4 pour <i>ID Capteur</i> (&lt; 2<sup>32</sup>)<br/>
+                                        + 4 pour <i>Timestamp</i> (entier "époque")<br/>
+                                        + 4 pour <i>Valeur</i> (flottant simple)
+                                    </code>
+                                </span>
+                                <p class="emphasis fragment">
+                                    Total = 4 408 Go
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </section>
