@@ -1084,6 +1084,164 @@
                     </div>
                 </section>
 
+                <section>
+                    <h3>Cinématique</h3>
+                    <h5>Comment les données arrivent au traitement</h5>
+                    <p class="slide-text fragment" forced-fragment-index="0">
+                        <b>Traitement par lots (ou <i>batch</i>)</b> : chaque lot est traité comme un tout. Les lots peuvent être de tailles égales ou différentes.
+                    </p>
+                    <div class="r-stretch">
+                        <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/batch.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=bidon1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=bidon2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=bidon3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "4"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                    <p class="slide-text fragment" forced-fragment-index="5">
+                        <b>Ordonnancement</b> : les batches sont déclenchés sur événement (<i>trigger</i>), par exemple à fréquence fixe, à la réception d'un signal externe, à la fin d'un autre batch, ...
+                    </p>
+                    <div class="slide-text fragment" forced-fragment-index="6">
+                        <p>
+                            Exemples :
+                        </p>
+                        <ul>
+                            <li>Traitement quotidien des virements initiés pendant la journée</li>
+                            <li>Descente des prix centrale d'achat &RightArrow; magasins en grande distribution</li>
+                            <li>Analyse de la production après un changement d'équipe en usine</li>
+                            <li>Simulation physique sur demande, avec plusieurs jeux de paramètres candidats</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Cinématique</h3>
+                    <h5>Comment les données arrivent au traitement</h5>
+                    <p class="slide-text fragment">
+                        <b>Au fil de l'eau (ou <i>streaming</i>)</b> : chaque donnée est un message traité immédiatement, dès sa réception.
+                    </p>
+                    <div class="r-stretch">
+                        <div class="fragment" data-animate data-load="assets/streaming.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                    <p class="slide-text fragment">
+                         Les messages sont le plus souvent indépendants entre eux et on ne contrôle pas leur ordre d'arrivée.
+                    </p>
+                    <div class="slide-text fragment">
+                        <p>
+                            Exemples :
+                        </p>
+                        <ul>
+                            <li>Analyse d'une transaction suspecte, pour vérifier une fraude</li>
+                            <li>Enchère publicitaire sur un site web</li>
+                            <li>Remontée d'une mesure de capteur</li>
+                        </ul>
+                    </div>
+                    <p class="slide-text note fragment">
+                        <u>NB</u> : les deux cinématiques peuvent être combinées : stockage au fil de l'eau et traitement par lots après accumulation.
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Notion d'état</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div class="bigger">
+                            <p class="fragment" forced-fragment-index="0">
+                                <b>Etat (<i>state</i>)</b> : c'est la "mémoire" d'un traitement. Il prend la forme d'un stockage : base de données, fichiers, mémoire vive le cas échéant, ...
+                            </p>
+                            <p class="fragment" forced-fragment-index="0">
+                                <i>(Sortie, Etat')</i> = <i>Traitement</i>(<i>Entrée</i>, <i>Etat</i>)
+                            </p>
+                            <p class="fragment" forced-fragment-index="1">
+                                <b>Persistance</b> : état qui perdure entre 2 exécutions ou sollicitations d'un traitement. S'il est perdu ou corrompu, le traitement ne peut pas s'exécuter correctement.
+                            </p>
+                            <p class="fragment" forced-fragment-index="2">
+                                <b>Point de reprise (<i>checkpoint</i>)</b> : état transitoire qui permet à un traitement de repartir d'un point connu en cas d'incident ou redémarrage. Il n'est pas critique.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/etat.svg">
+                                <!--
+                                    { "setup": [
+                                        { "modifier": "function() { resizeToContainer(this);}" },
+                                        { "element": "g[data-cell-id=checkpoint]", "modifier": "attr", "parameters": [ {"class": "fragment fade-down", "data-fragment-index": "2"} ] }
+                                    ]}
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Sémantique</h3>
+                    <h5>Comment le traitement interprète les données</h5>
+                    <p class="slide-text fragment" forced-fragment-index="0">
+                        <b>Annule & remplace</b> : les nouvelles données écrasent l'état de persistance.
+                    </p>
+                    <p class="slide-text fragment" forced-fragment-index="1">
+                        On ne sait pas a priori ce qui a changé dans les données, en plus ou en moins.
+                    </p>
+                    <div class="r-stretch">
+                        <div class="fragment" forced-fragment-index="2" data-animate data-load="assets/remplace.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=remplace]", "modifier": "attr", "parameters": [ {"class": "fragment fade-down", "data-fragment-index": "3"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                    <div class="slide-text fragment" forced-fragment-index="4">
+                        <p>
+                            Exemples :
+                        </p>
+                        <ul>
+                            <li>Inventaire de stocks par recomptage</li>
+                            <li>Comptabilité : renvoi de l'état des comptes après corrections</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Sémantique</h3>
+                    <h5>Comment le traitement interprète les données</h5>
+                    <p class="slide-text fragment" forced-fragment-index="0">
+                        <b>Incrémental ou "delta"</b> : les données entrantes sont des ordres de mises à jour à appliquer à l'état supposé connu (d'où l'importance de le garder intègre).
+                    </p>
+                    <div class="r-stretch">
+                        <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/delta.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=delta]", "modifier": "attr", "parameters": [ {"class": "fragment fade-down", "data-fragment-index": "2"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                    <div class="slide-text fragment" forced-fragment-index="3">
+                        <p>
+                            Exemples :
+                        </p>
+                        <ul>
+                            <li>Etat des stocks ajusté en fonction des ventes et des livraisons</li>
+                            <li>Arrivée et départ de personnel en entreprise</li>
+                            <li>Capteur renvoyant la variation d'une mesure et non sa valeur absolue</li>
+                        </ul>
+                    </div>
+                    <p class="slide-text note fragment">
+                        <u>NB</u> : en comparant 2 photos successives obtenues par "annule & remplace", on obtient... un "delta".
+                    </p>
+                </section>
+
             </div>
         </div>
         <script src="dist/reveal.js"></script>
