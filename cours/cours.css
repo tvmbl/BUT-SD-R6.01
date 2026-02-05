@@ -58,6 +58,7 @@ table {
 th {
     background-color: rgb(108, 188, 213, .5);
     font-size: 22px;
+    text-align: center;
 }
 .small-table > tbody > tr > th {
     font-size: 20px;
@@ -68,4 +69,13 @@ td {
 code {
     font-size: 20px;
     color: darkblue;
+}
+.easy {
+    background-color: rgba(192, 255, 192, .5);
+}
+.moderate {
+    background-color: rgba(255, 192, 128, .5);
+}
+.hard {
+    background-color: rgba(255, 192, 192, .5);
 }

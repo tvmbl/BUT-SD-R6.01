@@ -862,7 +862,7 @@
                             <p class="fragment" forced-fragment-index="0"><b>Scale-out</b> : on multiplie le matériel (serveurs).</p>
                             <p class="fragment" forced-fragment-index="1">Le système devient distribué : on parle de <b>cluster</b>, composé de <b>noeuds</b> pouvant calculer en parallèle.</p>
                             <p class="fragment" forced-fragment-index="6">En théorie, la capacité du cluster est proportionnelle au nombre de noeuds, c'est le concept de <b>scalabilité linéaire</b></p>
-                            <p class="fragment" forced-fragment-index="7">Les plateformes big data sont toutes distributées, et sur le cloud la taille des clusters est réglable à la demande.</p>
+                            <p class="fragment" forced-fragment-index="7">Les plateformes big data sont toutes distribuées, et sur le cloud la taille des clusters est réglable à la demande.</p>
                         </div>
                         <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/scale-out.svg">
                             <!--
@@ -1152,11 +1152,11 @@
                 </section>
 
                 <section>
-                    <h3>Notion d'état</h3>
+                    <h3>Notion d'état (ou <i>state</i>)</h3>
                     <div class="r-stretch slide-text two-columns">
                         <div class="bigger">
                             <p class="fragment" forced-fragment-index="0">
-                                <b>Etat (<i>state</i>)</b> : c'est la "mémoire" d'un traitement. Il prend la forme d'un stockage : base de données, fichiers, mémoire vive le cas échéant, ...
+                                C'est la "mémoire" d'un traitement. Il prend la forme d'un stockage : base de données, fichiers, mémoire vive le cas échéant, ...
                             </p>
                             <p class="fragment" forced-fragment-index="0">
                                 <i>(Sortie, Etat')</i> = <i>Traitement</i>(<i>Entrée</i>, <i>Etat</i>)
@@ -1173,7 +1173,7 @@
                                 <!--
                                     { "setup": [
                                         { "modifier": "function() { resizeToContainer(this);}" },
-                                        { "element": "g[data-cell-id=checkpoint]", "modifier": "attr", "parameters": [ {"class": "fragment fade-down", "data-fragment-index": "2"} ] }
+                                        { "element": "g[data-cell-id=checkpoint]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "2"} ] }
                                     ]}
                                 -->
                             </div>
@@ -1240,6 +1240,128 @@
                     <p class="slide-text note fragment">
                         <u>NB</u> : en comparant 2 photos successives obtenues par "annule & remplace", on obtient... un "delta".
                     </p>
+                </section>
+
+                <section>
+                    <h3>Cinématique, sémantique et complexité</h3>
+                    <div class="slide-text r-stretch">
+                        <p>
+                            Avantages et inconvénients à la louche, quand on peut choisir :
+                        </p>
+                        <table width="100%">
+                            <tr>
+                                <th></th>
+                                <th>Annule & remplace</th>
+                                <th>Delta</th>
+                            </tr>
+                            <tr>
+                                <th>Batch</th>
+                                <td class="fragment easy" data-fragment-index="0">
+                                    Simple à développer<br/>
+                                    Volume et latence plus élevés
+                                </td>
+                                <td class="fragment moderate" data-fragment-index="2">
+                                    Encore plus complexe<br/>
+                                    Volume modéré
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Streaming</th>
+                                <td class="fragment moderate" data-fragment-index="1">
+                                    Plus complexe<br/>
+                                    Volume faible
+                                </td>
+                                <td class="fragment hard" data-fragment-index="3">
+                                    <b>Très complexe</b> ⚠️<br/>
+                                    Volume et latence faibles
+                                </td>
+                            </tr>
+                        </table>
+                        <p class="fragment" data-fragment-index="4">
+                            <b>Qu'est-ce qui rend le streaming et le delta plus complexes ?</b>
+                        </p>
+                        <p class="fragment" data-fragment-index="5">
+                            C'est la gestion de l'état de persistance (toujours nécessaire avec le delta, souvent nécessaire en streaming)
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Robustesse et fiabilité</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div data-animate data-load="assets/question.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { this.transform({ scale: 1.5, translateX: 50 }); }" }
+                                ]}
+                            -->
+                        </div>
+                        <div class="bigger">
+                            <p>
+                                Fondamentalement, une plateforme big data stocke et manipule des données.
+                            </p>
+                            <p class="standout">
+                                Que peut-il se passer d'imprévu, et comment y remédier ?
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Robustesse et fiabilité</h3>
+                    <div class="r-stretch slide-text">
+                        <p class="fragment" data-fragment-index="0">
+                            Nous avons vu que les plateformes big data sont distribuées. Leur taille augmente la probabilité qu'un incident affecte un noeud.
+                        </p>
+                        <p class="fragment" data-fragment-index="1">
+                            Par exemple :
+                        </p>
+                        <ul>
+                            <li class="fragment" data-fragment-index="1"><b>Stockage</b> : crash d'un disque, ou d'un serveur qui en contient un</li>
+                            <li class="fragment" data-fragment-index="2"><b>Calcul</b> : défaillance d'un processeur, crash d'un noeud de calcul, mémoire pleine</li>
+                            <li class="fragment" data-fragment-index="3"><b>Réseau</b> : panne d'un équipement qui connecte les noeuds entre eux ou à l'extérieur</li>
+                            <li class="fragment" data-fragment-index="4"><b>Code des traitements</b> : bug, mauvaise gestion de données imprévues</li>
+                        </ul>
+                    </div>
+                    <div data-animate data-load="assets/robustesse.svg" class="fragment" data-fragment-index="4">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { this.transform({ scale: .5 }); }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Robustesse et fiabilité</h3>
+                    <h5>Point de vue de la plateforme</h5>
+                    <div class="r-stretch slide-text two-columns">
+                        <div class="bigger">
+                            <p class="fragment" forced-data-index="0">
+                                La réponse est la <b>redondance</b>. Elle sert à atteindre l'idéal de <b>haute disponibilité</b>
+                            </p>
+                            <p class="fragment" forced-data-index="1">
+                                <u>Pour le stockage</u> : les données sont répliquées plusieurs fois et réparties sur les noeuds de stockage.
+                            </p>
+                            <p class="fragment" forced-data-index="2">
+                                <u>Pour le calcul</u> : en cas de défaillance, tout ou partie du traitement est <b>rejouée</b> sur un autre noeud de calcul. Les points de reprise servent à ne pas repartir de zéro.
+                            </p>
+                            <p class="fragment" forced-data-index="3">
+                                <u>Pour le réseau</u> : le matériel est dupliqué.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/redondance.svg">
+                                <!--
+                                    { "setup": [
+                                        { "modifier": "function() { resizeToContainer(this);}" },
+                                        { "element": "g[data-cell-id=stockage]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                        { "element": "g[data-cell-id=calcul]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
+                                    ]}
+                                -->
+                            </div>
+                        </div>
+                    </div>
                 </section>
 
             </div>
