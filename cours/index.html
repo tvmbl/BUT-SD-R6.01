@@ -752,6 +752,24 @@
                 </section>
 
                 <section>
+                    <h3>Des vastes écosystèmes pour développer</h3>
+                    <p class="slide-text">
+                        (ce n'est absolument pas exhaustif)
+                    </p>
+                    <div class="r-stretch" data-animate data-load="assets/ecosysteme.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=python]", "modifier": "attr", "parameters": [ {"class": "fragment fade-down", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=r]", "modifier": "attr", "parameters": [ {"class": "fragment fade-down", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=generique]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=divers]", "modifier": "attr", "parameters": [ {"class": "fragment fade-left", "data-fragment-index": "3"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
                     <h3>Performance<u>s</u> d'un traitement ?</h3>
                     <p class="slide-text">
                         Qu'est-ce qui mesure les performances du traitement ?
@@ -1281,7 +1299,10 @@
                             <b>Qu'est-ce qui rend le streaming et le delta plus complexes ?</b>
                         </p>
                         <p class="fragment" data-fragment-index="5">
-                            C'est la gestion de l'état de persistance (toujours nécessaire avec le delta, souvent nécessaire en streaming)
+                            C'est la gestion de l'état de persistance (toujours nécessaire avec le delta, souvent nécessaire en streaming).
+                        </p>
+                        <p class="fragment" data-fragment-index="5">
+                            En delta, il faut de plus être très rigoureux sur la prise en compte des ordres de modifications, leur ordre d'application, etc.
                         </p>
                     </div>
                 </section>
@@ -1361,6 +1382,54 @@
                                 -->
                             </div>
                         </div>
+                    </div>
+                </section>
+                
+                <section>
+                    <h3>Robustesse et fiabilité</h3>
+                    <h5>Point de vue du traitement (i.e. de l'utilisateur)</h5>
+                    <div class="slide-text">
+                        <p>
+                            Il est important de distinguer <b>deux types d'erreurs</b> :
+                        </p>
+                    </div>
+                    <div class="r-stretch" data-animate data-load="assets/erreurs.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=transitoire]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=permanente]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] }
+                            ]}
+                        -->
+                    </div>
+                    <div class="slide-text fragment" forced-fragment-index="3">
+                        <p>
+                            Les plateformes peuvent automatiser la relance (rejeu) des traitements en erreur, entiers ou en partie. Les logs sont importants pour comprendre a posteriori ce qu'il s'est passé.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Traitements composés</h3>
+                    <div class="slide-text">
+                        <p class="fragment" forced-fragment-index="0">
+                            Un traitement peut être un enchaînement complexe d'étapes simples. On parle souvent de <b>workflow</b> ou de <b>DAG</b> (<i>Directed Acyclic Graph</i>).
+                        </p>
+                    </div>
+                    <div class="r-stretch" data-animate data-load="assets/dag.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=graphique]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=code]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=sql]", "modifier": "attr", "parameters": [ {"class": "fragment fade-left", "data-fragment-index": "3"} ] }
+                            ]}
+                        -->
+                    </div>
+                    <div class="slide-text">
+                        <p class="fragment" forced-fragment-index="4">
+                            Les workflows sont pris en charge par un ordonnanceur sur la plateforme, qui les déclenchent lorsque nécessaire et assure le bon enchaînement des étapes.
+                        </p>
                     </div>
                 </section>
 
