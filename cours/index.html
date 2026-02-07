@@ -52,25 +52,28 @@
                 </section>
 
                 <section>
-                    <h3>Déroulement du cours</h3>
-                    <div class="r-stretch">
-                        <div>
-                            <ul>
-                                <li>Introduction</li>
-                                <li>Anatomie des données</li>
-                                <li>Architecture d'une plateforme</li>
-                                <li>Les traitements en Big Data</li>
-                                <li>Le cloud</li>
-                                <li>Pour un usage responsable des données</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <ul>
-                                <li><b>1</b> évaluation écrite (fin du 2<sup>ème</sup> CM)</li>
-                                <li><b>3</b> TD non notés</li>
-                                <li><b>1</b> TD noté</li>
-                            </ul>
-                        </div>
+                    <h3>Programme</h3>
+                    <div class="r-stretch toc">
+                        <ul>
+                            <li>Introduction</li>
+                            <li>Anatomie des données</li>
+                            <li>Architecture d'une plateforme</li>
+                            <li>Les traitements en Big Data</li>
+                            <li>Le cloud</li>
+                            <li>Pour un usage responsable des données</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Evaluation</h3>
+                    <div class="r-stretch toc">
+                        <ul>
+                            <li>Un évaluation écrite (fin du 2<sup>ème</sup> CM)</li>
+                            <li>Un TD noté sur 4</li>
+                            <li>Une note sur la compréhension des autres TD</li>
+                            <li>Rattrapages organisés en cas d'absence</li>
+                        </ul>
                     </div>
                 </section>
 
@@ -81,21 +84,23 @@
                 <section>
                     <h3>Big Data en 2026</h3>
                     <div class="r-stretch slide-text">
-                        <p>
+                        <p class="fragment">
                             Big Data a longtemps été une affaire de spécialistes, dont les besoins très particuliers (les fameux "3 V") exigeaient des techniques de pointe.
                         </p>
-                        <p>
-                            Aujourd'hui, le cloud a mis ces techniques à la portée de tout le monde, et "big" ou pas, on parle simplement de Data.
+                        <p class="fragment">
+                            Aujourd'hui, avec le cloud, "Big Data" = "Data" tout court.
                         </p>
-                        <p>
-                            L'héritage de Big Data se retrouve à plusieurs niveaux :
+                        <div class="fragment">
+                            <p>
+                                L'héritage de Big Data se retrouve à plusieurs niveaux :
+                            </p>
                             <ul>
                                 <li>outillage : la mise à disposition de <b>plateformes de données</b></li>
                                 <li>modélisation : des pratiques de <b>mise en forme et de stockage</b></li>
                                 <li>traitements : des <b>algorithmes</b> adaptés à la manipulation efficace</li>
                                 <li>gouvernance : des <b>règles de bon usage</b>, surtout pour les données sensibles</li>
                             </ul>
-                        </p>
+                        </div>
                     </div>
                 </section>
 
@@ -151,9 +156,17 @@
                     <div class="r-stretch slide-text two-columns">
                         <div>
                             <p>
-                                Un système (big) data <b>centralise</b> de la donnée brute, la <b>transforme</b> en informations, qui servent d’appui à la <b>prise de décision</b> (automatique ou humaine).
+                                <span class="fragment" forced-fragment-index="0">
+                                    Un système (big) data <b>centralise</b> de la donnée brute,
+                                </span>
+                                <span class="fragment" forced-fragment-index="1">
+                                    la <b>transforme</b> en informations,
+                                </span>
+                                <span class="fragment" forced-fragment-index="2">
+                                    qui servent d’appui à la <b>prise de décision</b> (automatique ou humaine).
+                                </span>
                             </p>
-                            <p>
+                            <p class="fragment" forced-fragment-index="3">
                                 Les <b>actions</b> consécutives à la décision ont un effet reflété dans de nouvelles observations, sous forme de données qui alimentent le cycle.
                             </p>
                         </div>
@@ -472,23 +485,23 @@
                     <h5>Zoom sur Parquet</h5>
                     <div class="r-stretch slide-text two-columns">
                         <div class="bigger">
-                            <p class="fragment" data-fragment-index="0">
+                            <p class="fragment" forced-fragment-index="0">
                                 <b>Parquet</b> est un format de fichier optimisé pour les traitements de type “big data”. Il stocke des données tabulaires.
                             </p>
                             <ul>
-                                <li class="fragment" data-fragment-index="1">Souple pour la modélisation : structuré, semi-structuré, partitionnable</li>
-                                <li class="fragment" data-fragment-index="2">Compresse efficacement donc rapide à lire</li>
-                                <li class="fragment" data-fragment-index="3">Optimisé pour les calculs analytiques (somme, min, max, ...)</li>
-                                <li class="fragment" data-fragment-index="4">Compatible avec les algorithmes de traitement parallèle</li>
+                                <li class="fragment" forced-fragment-index="1">Souple pour la modélisation : structuré, semi-structuré, partitionnable</li>
+                                <li class="fragment" forced-fragment-index="2">Compresse efficacement donc rapide à lire</li>
+                                <li class="fragment" forced-fragment-index="3">Optimisé pour les calculs analytiques (somme, min, max, ...)</li>
+                                <li class="fragment" forced-fragment-index="5">Compatible avec les algorithmes de traitement parallèle</li>
                             </ul>
-                            <p class="fragment" data-fragment-index="6">Excellent produit de raffinage !</p>
+                            <p class="fragment" forced-fragment-index="5">Excellent produit de raffinage !</p>
                         </div>
                         <div data-animate data-load="assets/parquet.svg">
                             <!--
                                 { "setup": [
                                     { "modifier": "function() { resizeToContainer(this);}" },
-                                    { "element": "g[data-cell-id=colA]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
-                                    { "element": "g[data-cell-id=colB]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] }
+                                    { "element": "g[data-cell-id=colA]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=colB]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] }
                                 ]}
                             -->
                         </div>
@@ -652,95 +665,117 @@
 
                 <section>
                     <h3>Ingestion</h3>
-                    <div class="r-stretch slide-text">
-                        <p>
-                            Les composants d'ingestion amènent la donnée vers le stockage de la plateforme. En règle générale, ils font une copie à l'identique des données brutes récupérées.
-                        </p>
-                        <p class="fragment">
-                            On rencontre souvent :
-                        </p>
-                        <ul>
-                            <li class="fragment">des <b>espaces</b> pour déposer des fichiers directement sur un data lake</li>
-                            <li class="fragment">des <b>API</b> que l'on peut appeler de l'extérieur pour ajouter des données</li>
-                            <li class="fragment">des <b>ETL</b> (<i>Extract - Transform - Load</i>) : logiciels faisant régulièrement des copies de bases de données ou d'ordonnancer des copies de fichiers</li>
-                            <li class="fragment">des <b>files de messages</b> (<i>brokers</i>) pour l'ingestion en temps réel</li>
-                            <li class="fragment">des <b>programmes ad-hoc</b> pour récupérer des données spécifiques</li>
-                        </ul>
+                    <div class="two-columns r-stretch slide-text">
+                        <div class="bigger">
+                            <p>
+                                Amène la donnée vers le stockage de la plateforme. En règle générale, c'est une copie à l'identique des données brutes récupérées.
+                            </p>
+                            <p class="fragment">
+                                On rencontre souvent :
+                            </p>
+                            <ul>
+                                <li class="fragment">des <b>espaces</b> et <b>API</b> de dépôt</li>
+                                <li class="fragment">des <b>ETL</b> (<i>Extract - Transform - Load</i>) pour copier fichiers et bases de données</li>
+                                <li class="fragment">des <b>files de messages</b> (<i>brokers</i>) pour l'ingestion en temps réel</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="assets/entonnoir.png"/>
+                        </div>
                     </div>
                 </section>
 
                 <section>
                     <h3>Stockage</h3>
-                    <div class="r-stretch slide-text">
-                        <p>
-                            Les composants de stockage ont pour mission d'offrir de vastes espaces où les données d'entrée, produites, etc. peuvent s'accumuler de manière fiable.
-                        </p>
-                        <p class="fragment">
-                            Outre la persistance de ces données, ils gèrent aussi le cycle de vie des données (ex. archivage, purge), leur chiffrement et les droits d'accès.
-                        </p>
-                        <p class="fragment">
-                            Quelques types de stockage courants :
-                        </p>
-                        <ul>
-                            <li class="fragment">le <b>stockage "objet"</b> pour des gros fichiers et les <b>data lakes</b></li>
-                            <li class="fragment">les <b>bases de données</b> relationnelles ou non (NoSQL)</li>
-                            <li class="fragment">les <b>data warehouses</b>, qui sont comme des grosses bases de données pour les analyses profondes</li>
-                        </ul>
+                    <div class="two-columns r-stretch slide-text">
+                        <div>
+                            <img src="assets/stockage.png"/>
+                        </div>
+                        <div class="bigger">
+                            <p>
+                                Offre de vastes espaces où les données d'entrée, produites, etc. peuvent s'accumuler de manière fiable.
+                            </p>
+                            <p class="fragment">
+                                Gère aussi le cycle de vie des données (ex. archivage, purge), leur chiffrement et les droits d'accès.
+                            </p>
+                            <p class="fragment">
+                                Quelques types de stockage courants :
+                            </p>
+                            <ul>
+                                <li class="fragment">le <b>stockage "objet"</b> pour des gros fichiers et les <b>data lakes</b></li>
+                                <li class="fragment">les <b>bases de données</b> relationnelles ou non (NoSQL)</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
                 <section>
                     <h3>Traitement</h3>
-                    <div class="r-stretch slide-text">
-                        <p>
-                            Cette partie assure la bonne exécution du code des traitements demandés à la plateforme. Le code doit être adapté à la plateforme en question.
-                        </p>
-                        <p class="fragment">
-                            On va y trouver deux grands types de composants :
-                        </p>
-                        <ul>
-                            <li class="fragment">les <b>moteurs de calcul</b> exécutent des traitements unitaires (<i>jobs</i>) de manière performante</li>
-                            <li class="fragment">les <b>ordonnanceurs</b> ou <b>orchestrateurs</b> exécutent des traitements composés de plusieurs jobs, les planifient, ..., sous forme de <i>pipelines</i>, ou <i>workflows</i></li>
-                        </ul>
+                    <div class="two-columns r-stretch slide-text">
+                        <div class="bigger">
+                            <p>
+                                Assure la bonne exécution du code des traitements demandés à la plateforme. Le code doit être adapté à la plateforme en question.
+                            </p>
+                            <p class="fragment">
+                                On va y trouver deux grands types de composants :
+                            </p>
+                            <ul>
+                                <li class="fragment">les <b>moteurs de calcul</b> exécutent des traitements unitaires (<i>jobs</i>) de manière performante</li>
+                                <li class="fragment">les <b>ordonnanceurs</b> ou <b>orchestrateurs</b> planifient et exécutent des traitements composés de plusieurs jobs</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="assets/traitement.png"/>
+                        </div>
                     </div>
                 </section>
 
                 <section>
                     <h3>Exploitation</h3>
-                    <div class="r-stretch slide-text">
-                        <p>
-                            Ce sont tous les outils, langages et librairies permettant d'interagir avec la plateforme pour récupérer les données et résultats de calcul. Ils peuvent être fournis par la plateforme, ou être en dehors et s'y connecter.
-                        </p>
-                        <p class="fragment">
-                            Ces outils peuvent déclencher des traitements pour calculer des résultats temporaires (ex. requête SQL d'analyse).
-                        </p>
-                        <p class="fragment">
-                            On va y trouver en particulier :
-                        </p>
-                        <ul>
-                            <li class="fragment">des <b>SDK</b> (<i>Software Development Kits</i>) à utiliser dans les programmes R / Python / ... qui accèdent au stockage, déclenchent des traitements, etc.</li>
-                            <li class="fragment">des logiciels de <b>reporting</b> (PowerBI, Tableau, ...) ou d'<b>analyse</b> (Dataiku, Excel)</li>
-                            <li class="fragment">des <b>requêteurs</b> type SQL</li>
-                            <li class="fragment">les <b>ETL</b>, déjà cités pour l'ingestion, font aussi partie de cette catégorie</li>
-                        </ul>
+                    <div class="two-columns r-stretch slide-text">
+                        <div>
+                            <img src="assets/exploitation.png"/>
+                        </div>
+                        <div class="bigger">
+                            <p>
+                                Outils, langages et librairies permettant d'exploiter les données de la plateforme.
+                            </p>
+                            <p class="fragment">
+                                Ils peuvent déclencher des traitements pour calculer des résultats temporaires (ex. requête SQL d'analyse).
+                            </p>
+                            <p class="fragment">
+                                On va y trouver en particulier :
+                            </p>
+                            <ul>
+                                <li class="fragment">des <b>SDK</b> (<i>Software Development Kits</i>) à utiliser dans les programmes R / Python / ...</li>
+                                <li class="fragment">des <b>requêteurs</b> type SQL</li>
+                                <li class="fragment">des logiciels d'<b>analyse interactive</b> (PowerBI, Tableau, Dataiku, Excel...)</li>
+                                <li class="fragment">les <b>ETL</b>, pour l'export de données en masse</li>
+                            </ul>
+                        </div>
                     </div>
                 </section>
 
                 <section>
                     <h3>Notion d'offre de services</h3>
-                    <div class="r-stretch slide-text">
-                        <p class="fragment">
-                            En tant qu'utilisateurs de la plateforme en entreprise, les outils assurant ingestion, stockage, traitement et exploitation font partie d'un <b>catalogue d'offre de services</b>.
-                        </p>
-                        <p class="fragment">
-                            Ils sont assortis :
-                        </p>
-                        <ul>
-                            <li class="fragment">de la documentation sur la plateforme</li>
-                            <li class="fragment">de règles de bonne utilisation (gouvernance des données, sécurité, ...)</li>
-                            <li class="fragment">de kits de démarrage et tutoriels pour démarrer rapidement</li>
-                            <li class="fragment">d'un support technique fourni par une équipe dédiée</li>
-                        </ul>
+                    <div class="two-columns r-stretch slide-text">
+                        <div class="bigger">
+                            <p class="fragment">
+                                Les outils vus ci-dessus font partie du <b>catalogue d'offre de services</b> de la plateforme.
+                            </p>
+                            <p class="fragment">
+                                Ils sont assortis :
+                            </p>
+                            <ul>
+                                <li class="fragment">de la documentation de la plateforme</li>
+                                <li class="fragment">de règles de bonne utilisation (gouvernance, sécurité, ...)</li>
+                                <li class="fragment">de tutoriels pour démarrer rapidement</li>
+                                <li class="fragment">d'un support technique pour dépanner</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="assets/offre.png"/>
+                        </div>
                     </div>
                 </section>
 
@@ -1431,6 +1466,13 @@
                             Les workflows sont pris en charge par un ordonnanceur sur la plateforme, qui les déclenchent lorsque nécessaire et assure le bon enchaînement des étapes.
                         </p>
                     </div>
+                </section>
+
+                <section>
+                    <h2>Le cloud</h2>
+                    <p class="fragment subtitle">
+                        Super plateforme... et usine à plateformes
+                    </p>
                 </section>
 
             </div>
