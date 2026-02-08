@@ -1,0 +1,94 @@
+.subtitle {
+    font-size: 40px;
+    color: rgb(13, 13, 135);
+}
+.slide-text {
+    align-content: center;
+    text-align: left;
+    font-size: 25px;
+}
+.toc {
+    align-content: center;
+    text-align: left;
+    font-size: 45px;
+}
+.toc > ul > li {
+    list-style-type: "➡️ ";
+    margin-top: 20px;
+}
+.play > ul > li {
+    list-style-type: "▶️ ";
+}
+.two-columns {
+    display: flex;
+    align-items: center;
+}
+.two-columns > .bigger {
+    flex: 2;
+    padding: 20px;
+}
+.standout {
+    font-size: 50px;
+    font-weight: bold;
+}
+.emphasis {
+    font-size: 40px;
+    font-weight: bold;
+}
+.two-columns > :not(.bigger) {
+    flex: 1;
+    padding: 20px;
+}
+.slide-background-content {
+    background-image: url("assets/background.jpg");
+    opacity: 50%;
+}
+.caption {
+    font-size: 10px;
+    text-align: right;
+}
+.note {
+    font-size: 20px;
+}
+.deduction {
+    list-style-type: "⇒ ";
+}
+table {
+    font-size: 20px;
+}
+.small-table {
+    font-size: 18px;
+}
+.align-top {
+    align-content: flex-start !important;
+}
+th {
+    background-color: rgb(108, 188, 213, .5);
+    font-size: 22px;
+    text-align: center;
+}
+.small-table > tbody > tr > th {
+    font-size: 20px;
+}
+td {
+    background-color: rgba(255, 255, 255, .5);
+}
+code {
+    font-size: 20px;
+    color: darkblue;
+}
+.easy {
+    background-color: rgba(192, 255, 192, .5);
+}
+.moderate {
+    background-color: rgba(255, 192, 128, .5);
+}
+.hard {
+    background-color: rgba(255, 192, 192, .5);
+}
+.synthese {
+    border: 20px solid #CFDBEB;
+}
+.synthese > ul > li {
+    margin-top: 30px;
+}
