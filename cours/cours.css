@@ -83,3 +83,9 @@ code {
 .hard {
     background-color: rgba(255, 192, 192, .5);
 }
+.synthese {
+    border: 20px solid #CFDBEB;
+}
+.synthese > ul > li {
+    margin-top: 30px;
+}

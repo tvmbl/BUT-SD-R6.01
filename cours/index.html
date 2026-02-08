@@ -56,8 +56,8 @@
                     <div class="r-stretch toc">
                         <ul>
                             <li>Introduction</li>
+                            <li>Plateforme de données</li>
                             <li>Anatomie des données</li>
-                            <li>Architecture d'une plateforme</li>
                             <li>Les traitements en Big Data</li>
                             <li>Le cloud</li>
                             <li>Pour un usage responsable des données</li>
@@ -163,7 +163,7 @@
                                     la <b>transforme</b> en informations,
                                 </span>
                                 <span class="fragment" forced-fragment-index="2">
-                                    qui servent d’appui à la <b>prise de décision</b> (automatique ou humaine).
+                                    qui servent d''appui à la <b>prise de décision</b> (automatique ou humaine).
                                 </span>
                             </p>
                             <p class="fragment" forced-fragment-index="3">
@@ -185,7 +185,14 @@
                 </section>
 
                 <section>
-                    <h3>Mise en œuvre sur une plateforme</h3>
+                    <h2>Plateforme de données</h2>
+                    <p class="fragment subtitle">
+                        Matériel et logiciels dédiés au big data
+                    </p>
+                </section>
+
+                <section>
+                    <h3>Rôles d'une plateforme</h3>
                     <div class="r-stretch" data-animate data-load="assets/plateforme.svg">
                         <!--
                             { "setup": [
@@ -222,6 +229,286 @@
                                 { "modifier": "function() { resizeToContainer(this);}" }
                             ]}
                         -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Ingestion</h3>
+                    <div class="two-columns r-stretch slide-text">
+                        <div class="bigger">
+                            <p>
+                                Amène la donnée vers le stockage de la plateforme. En règle générale, c'est une copie à l'identique des données brutes récupérées.
+                            </p>
+                            <p class="fragment">
+                                On rencontre souvent :
+                            </p>
+                            <ul>
+                                <li class="fragment">des <b>espaces</b> et <b>API</b> de dépôt</li>
+                                <li class="fragment">des <b>ETL</b> (<i>Extract - Transform - Load</i>) pour copier fichiers et bases de données</li>
+                                <li class="fragment">des <b>files de messages</b> (<i>brokers</i>) pour l'ingestion en temps réel</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="assets/entonnoir.png"/>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Stockage</h3>
+                    <div class="two-columns r-stretch slide-text">
+                        <div>
+                            <img src="assets/stockage.png"/>
+                        </div>
+                        <div class="bigger">
+                            <p>
+                                Offre de vastes espaces où les données d'entrée, produites, etc. peuvent s'accumuler de manière fiable.
+                            </p>
+                            <p class="fragment">
+                                Gère aussi le cycle de vie des données (ex. archivage, purge), leur chiffrement et les droits d'accès.
+                            </p>
+                            <p class="fragment">
+                                Quelques types de stockage courants :
+                            </p>
+                            <ul>
+                                <li class="fragment">le <b>stockage "objet"</b> pour des gros fichiers et les <b>data lakes</b></li>
+                                <li class="fragment">les <b>bases de données</b> relationnelles ou non (NoSQL)</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Traitement</h3>
+                    <div class="two-columns r-stretch slide-text">
+                        <div class="bigger">
+                            <p>
+                                Assure la bonne exécution du code des traitements demandés à la plateforme. Le code doit être adapté à la plateforme en question.
+                            </p>
+                            <p class="fragment">
+                                On va y trouver deux grands types de composants :
+                            </p>
+                            <ul>
+                                <li class="fragment">les <b>moteurs de calcul</b> exécutent des traitements unitaires (<i>jobs</i>) de manière performante</li>
+                                <li class="fragment">les <b>ordonnanceurs</b> ou <b>orchestrateurs</b> planifient et exécutent des traitements composés de plusieurs jobs</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="assets/traitement.png"/>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Exploitation</h3>
+                    <div class="two-columns r-stretch slide-text">
+                        <div>
+                            <img src="assets/exploitation.png"/>
+                        </div>
+                        <div class="bigger">
+                            <p>
+                                Outils, langages et librairies permettant d'exploiter les données de la plateforme.
+                            </p>
+                            <p class="fragment">
+                                Ils peuvent déclencher des traitements pour calculer des résultats temporaires (ex. requête SQL d'analyse).
+                            </p>
+                            <p class="fragment">
+                                On va y trouver en particulier :
+                            </p>
+                            <ul>
+                                <li class="fragment">des <b>SDK</b> (<i>Software Development Kits</i>) à utiliser dans les programmes R / Python / ...</li>
+                                <li class="fragment">des <b>requêteurs</b> type SQL</li>
+                                <li class="fragment">des logiciels d'<b>analyse interactive</b> (PowerBI, Tableau, Dataiku, Excel...)</li>
+                                <li class="fragment">les <b>ETL</b>, pour l'export de données en masse</li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Notion d'offre de services</h3>
+                    <div class="two-columns r-stretch slide-text">
+                        <div class="bigger">
+                            <p class="fragment">
+                                Les outils vus ci-dessus font partie du <b>catalogue d'offre de services</b> de la plateforme.
+                            </p>
+                            <p class="fragment">
+                                Ils sont assortis :
+                            </p>
+                            <ul>
+                                <li class="fragment">de la documentation de la plateforme</li>
+                                <li class="fragment">de règles de bonne utilisation (gouvernance, sécurité, ...)</li>
+                                <li class="fragment">de tutoriels pour démarrer rapidement</li>
+                                <li class="fragment">d'un support technique pour dépanner</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <img src="assets/offre.png"/>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Quand le volume augmente</h3>
+                    <div class="r-stretch two-columns slide-text">
+                        <div>
+                            <p class="fragment" data-fragment-index="0"><b>Scale-up</b> : on augmente la puissance du matériel :</p>
+                            <ul>
+                                <li class="fragment" data-fragment-index="1">un CPU plus rapide ou avec plus de coeurs</li>
+                                <li class="fragment" data-fragment-index="2">un GPU pour aller plus vite</li>
+                                <li class="fragment" data-fragment-index="3">plus de mémoire RAM</li>
+                                <li class="fragment" data-fragment-index="4">des disques plus gros ou plus rapides</li>
+                                <li class="fragment" data-fragment-index="4">...</li>
+                            </ul>
+                            <p class="fragment" data-fragment-index="5">
+                                ... mais on finit par atteindre une limite physique indépassable !
+                            </p>
+                        </div>
+                        <div class="fragment" data-fragment-index="1" data-animate data-load="assets/scale-up.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=step1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=server1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=step2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=server2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=step3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=server3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=step4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=server4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=limit]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Quand le volume augmente</h3>
+                    <div class="r-stretch two-columns slide-text">
+                        <div>
+                            <p class="fragment" forced-fragment-index="0"><b>Scale-out</b> : on multiplie le matériel (serveurs).</p>
+                            <p class="fragment" forced-fragment-index="1">Le système devient distribué : on parle de <b>cluster</b>, composé de <b>noeuds</b> pouvant calculer en parallèle.</p>
+                            <p class="fragment" forced-fragment-index="6">En théorie, la capacité du cluster est proportionnelle au nombre de noeuds, c'est le concept de <b>scalabilité linéaire</b></p>
+                            <p class="fragment" forced-fragment-index="7">Les plateformes big data sont toutes distribuées, et sur le cloud la taille des clusters est réglable à la demande.</p>
+                        </div>
+                        <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/scale-out.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=step1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=step2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=step3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=step4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=step5]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] },
+                                    { "element": "g[data-cell-id=step6]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "6"} ] }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Mettre le curseur</h3>
+                    <h5>Ordres de grandeur</h5>
+                    <div class="r-stretch" data-animate data-load="assets/scale-zones.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=scale-up]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=scale-out]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=zone-grise]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Robustesse et fiabilité</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div data-animate data-load="assets/question.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { this.transform({ scale: 1.5, translateX: 50 }); }" }
+                                ]}
+                            -->
+                        </div>
+                        <div class="bigger">
+                            <p>
+                                Fondamentalement, une plateforme stocke et manipule des données.
+                            </p>
+                            <p class="standout">
+                                Que peut-il se passer d'imprévu, et comment y remédier ?
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Robustesse et fiabilité</h3>
+                    <div class="r-stretch slide-text">
+                        <p class="fragment" data-fragment-index="0">
+                            Nous avons vu que les plateformes de données sont distribuées. Leur taille augmente la probabilité qu'un incident affecte un noeud.
+                        </p>
+                        <p class="fragment" data-fragment-index="1">
+                            Par exemple :
+                        </p>
+                        <ul>
+                            <li class="fragment" data-fragment-index="1"><b>Stockage</b> : crash d'un disque, ou d'un serveur qui en contient un</li>
+                            <li class="fragment" data-fragment-index="2"><b>Calcul</b> : défaillance d'un processeur, crash d'un noeud de calcul, mémoire pleine</li>
+                            <li class="fragment" data-fragment-index="3"><b>Réseau</b> : panne d'un équipement qui connecte les noeuds entre eux ou à l'extérieur</li>
+                            <li class="fragment" data-fragment-index="4"><b>Code des traitements</b> : bug, mauvaise gestion de données imprévues</li>
+                        </ul>
+                    </div>
+                    <div data-animate data-load="assets/robustesse.svg" class="fragment" data-fragment-index="4">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { this.transform({ scale: .5 }); }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Robustesse et fiabilité</h3>
+                    <div class="r-stretch slide-text two-columns">
+                        <div class="bigger">
+                            <p class="fragment" forced-data-index="0">
+                                La réponse est la <b>redondance</b>. Elle sert à atteindre l'idéal de <b>haute disponibilité</b>
+                            </p>
+                            <p class="fragment" forced-data-index="1">
+                                <u>Pour le stockage</u> : les données sont répliquées plusieurs fois et réparties sur les noeuds de stockage.
+                            </p>
+                            <p class="fragment" forced-data-index="2">
+                                <u>Pour le calcul</u> : en cas de défaillance, tout ou partie du traitement est <b>rejouée</b> sur un autre noeud de calcul. Les points de reprise servent à ne pas repartir de zéro.
+                            </p>
+                            <p class="fragment" forced-data-index="3">
+                                <u>Pour le réseau</u> : le matériel est dupliqué.
+                            </p>
+                        </div>
+                        <div>
+                            <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/redondance.svg">
+                                <!--
+                                    { "setup": [
+                                        { "modifier": "function() { resizeToContainer(this);}" },
+                                        { "element": "g[data-cell-id=stockage]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
+                                        { "element": "g[data-cell-id=calcul]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
+                                    ]}
+                                -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Synthèse</h3>
+                    <div class="slide-text r-stretch synthese">
+                        <ul>
+                            <li>Une plateforme de données offre les services nécessaires au big data</li>
+                            <li>Ces services peuvent être mis en correspondance sur le cycle de vie des données</li>
+                            <li>4 couches se distinguent en particulier : ingestion, stockage, traitement, exploitation</li>
+                            <li>La plateforme est conçue pour gérer d'importants volumes de manière fiable</li>
+                        </ul>
                     </div>
                 </section>
 
@@ -632,7 +919,7 @@
                         </p>
                         <ul>
                             <li>Respect de la vie privée par anonymisation des terminaux et bornages</li>
-                            <li>Obligation de restituer ou supprimer les données d’un abonné sur demande (RGPD)</li>
+                            <li>Obligation de restituer ou supprimer les données d'un abonné sur demande (RGPD)</li>
                             <li>Suivi et maintien d’une qualité de données en cohérence avec le prix du service</li>
                             <li>Procédures de correction de données aberrantes</li>
                             <li>Maîtrise des coûts en évitant l’accumulation ad vitam aeternam de données devenues caduques</li>
@@ -646,136 +933,14 @@
                 </section>
 
                 <section>
-                    <h2>Architecture d'une plateforme</h2>
-                    <p class="fragment subtitle">
-                        Les briques logicielles qui composent une plateforme de données moderne
-                    </p>
-                </section>
-
-                <section>
-                    <h3>Plateforme Big Data (rappel)</h3>
-                    <div class="r-stretch" data-animate data-load="assets/plateforme.svg">
-                        <!--
-                            { "setup": [
-                                { "modifier": "function() { resizeToContainer(this);}" }
-                            ]}
-                        -->
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Ingestion</h3>
-                    <div class="two-columns r-stretch slide-text">
-                        <div class="bigger">
-                            <p>
-                                Amène la donnée vers le stockage de la plateforme. En règle générale, c'est une copie à l'identique des données brutes récupérées.
-                            </p>
-                            <p class="fragment">
-                                On rencontre souvent :
-                            </p>
-                            <ul>
-                                <li class="fragment">des <b>espaces</b> et <b>API</b> de dépôt</li>
-                                <li class="fragment">des <b>ETL</b> (<i>Extract - Transform - Load</i>) pour copier fichiers et bases de données</li>
-                                <li class="fragment">des <b>files de messages</b> (<i>brokers</i>) pour l'ingestion en temps réel</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <img src="assets/entonnoir.png"/>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Stockage</h3>
-                    <div class="two-columns r-stretch slide-text">
-                        <div>
-                            <img src="assets/stockage.png"/>
-                        </div>
-                        <div class="bigger">
-                            <p>
-                                Offre de vastes espaces où les données d'entrée, produites, etc. peuvent s'accumuler de manière fiable.
-                            </p>
-                            <p class="fragment">
-                                Gère aussi le cycle de vie des données (ex. archivage, purge), leur chiffrement et les droits d'accès.
-                            </p>
-                            <p class="fragment">
-                                Quelques types de stockage courants :
-                            </p>
-                            <ul>
-                                <li class="fragment">le <b>stockage "objet"</b> pour des gros fichiers et les <b>data lakes</b></li>
-                                <li class="fragment">les <b>bases de données</b> relationnelles ou non (NoSQL)</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Traitement</h3>
-                    <div class="two-columns r-stretch slide-text">
-                        <div class="bigger">
-                            <p>
-                                Assure la bonne exécution du code des traitements demandés à la plateforme. Le code doit être adapté à la plateforme en question.
-                            </p>
-                            <p class="fragment">
-                                On va y trouver deux grands types de composants :
-                            </p>
-                            <ul>
-                                <li class="fragment">les <b>moteurs de calcul</b> exécutent des traitements unitaires (<i>jobs</i>) de manière performante</li>
-                                <li class="fragment">les <b>ordonnanceurs</b> ou <b>orchestrateurs</b> planifient et exécutent des traitements composés de plusieurs jobs</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <img src="assets/traitement.png"/>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Exploitation</h3>
-                    <div class="two-columns r-stretch slide-text">
-                        <div>
-                            <img src="assets/exploitation.png"/>
-                        </div>
-                        <div class="bigger">
-                            <p>
-                                Outils, langages et librairies permettant d'exploiter les données de la plateforme.
-                            </p>
-                            <p class="fragment">
-                                Ils peuvent déclencher des traitements pour calculer des résultats temporaires (ex. requête SQL d'analyse).
-                            </p>
-                            <p class="fragment">
-                                On va y trouver en particulier :
-                            </p>
-                            <ul>
-                                <li class="fragment">des <b>SDK</b> (<i>Software Development Kits</i>) à utiliser dans les programmes R / Python / ...</li>
-                                <li class="fragment">des <b>requêteurs</b> type SQL</li>
-                                <li class="fragment">des logiciels d'<b>analyse interactive</b> (PowerBI, Tableau, Dataiku, Excel...)</li>
-                                <li class="fragment">les <b>ETL</b>, pour l'export de données en masse</li>
-                            </ul>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Notion d'offre de services</h3>
-                    <div class="two-columns r-stretch slide-text">
-                        <div class="bigger">
-                            <p class="fragment">
-                                Les outils vus ci-dessus font partie du <b>catalogue d'offre de services</b> de la plateforme.
-                            </p>
-                            <p class="fragment">
-                                Ils sont assortis :
-                            </p>
-                            <ul>
-                                <li class="fragment">de la documentation de la plateforme</li>
-                                <li class="fragment">de règles de bonne utilisation (gouvernance, sécurité, ...)</li>
-                                <li class="fragment">de tutoriels pour démarrer rapidement</li>
-                                <li class="fragment">d'un support technique pour dépanner</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <img src="assets/offre.png"/>
-                        </div>
+                    <h3>Synthèse</h3>
+                    <div class="slide-text r-stretch synthese">
+                        <ul>
+                            <li>Modélisation et format décrivent la représentation des données</li>
+                            <li>Pour la performance, is doivent être adaptées à l'usage qui sera fait des données</li>
+                            <li>Le partitionnement et le format Parquet sont fréquemment utilisés en big data</li>
+                            <li>Outre les aspects techniques, il est important de respecter les règles de gouvernance des données</li>
+                        </ul>
                     </div>
                 </section>
 
@@ -866,83 +1031,9 @@
                     <div data-animate data-load="assets/parallele-cas.svg">
                         <!--
                             { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
                                 { "element": "g[data-cell-id=glop]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
                                 { "element": "g[data-cell-id=pas-glop]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
-                            ]}
-                        -->
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Quand le volume augmente</h3>
-                    <div class="r-stretch two-columns slide-text">
-                        <div>
-                            <p class="fragment" data-fragment-index="0"><b>Scale-up</b> : on augmente la puissance du matériel :</p>
-                            <ul>
-                                <li class="fragment" data-fragment-index="1">un CPU plus rapide ou avec plus de coeurs</li>
-                                <li class="fragment" data-fragment-index="2">un GPU pour aller plus vite</li>
-                                <li class="fragment" data-fragment-index="3">plus de mémoire RAM</li>
-                                <li class="fragment" data-fragment-index="4">des disques plus gros ou plus rapides</li>
-                                <li class="fragment" data-fragment-index="4">...</li>
-                            </ul>
-                            <p class="fragment" data-fragment-index="5">
-                                ... mais on finit par atteindre une limite physique indépassable !
-                            </p>
-                        </div>
-                        <div class="fragment" data-fragment-index="1" data-animate data-load="assets/scale-up.svg">
-                            <!--
-                                { "setup": [
-                                    { "modifier": "function() { resizeToContainer(this);}" },
-                                    { "element": "g[data-cell-id=step1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
-                                    { "element": "g[data-cell-id=server1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
-                                    { "element": "g[data-cell-id=step2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
-                                    { "element": "g[data-cell-id=server2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
-                                    { "element": "g[data-cell-id=step3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
-                                    { "element": "g[data-cell-id=server3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
-                                    { "element": "g[data-cell-id=step4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
-                                    { "element": "g[data-cell-id=server4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
-                                    { "element": "g[data-cell-id=limit]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] }
-                                ]}
-                            -->
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Quand le volume augmente</h3>
-                    <div class="r-stretch two-columns slide-text">
-                        <div>
-                            <p class="fragment" forced-fragment-index="0"><b>Scale-out</b> : on multiplie le matériel (serveurs).</p>
-                            <p class="fragment" forced-fragment-index="1">Le système devient distribué : on parle de <b>cluster</b>, composé de <b>noeuds</b> pouvant calculer en parallèle.</p>
-                            <p class="fragment" forced-fragment-index="6">En théorie, la capacité du cluster est proportionnelle au nombre de noeuds, c'est le concept de <b>scalabilité linéaire</b></p>
-                            <p class="fragment" forced-fragment-index="7">Les plateformes big data sont toutes distribuées, et sur le cloud la taille des clusters est réglable à la demande.</p>
-                        </div>
-                        <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/scale-out.svg">
-                            <!--
-                                { "setup": [
-                                    { "modifier": "function() { resizeToContainer(this);}" },
-                                    { "element": "g[data-cell-id=step1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
-                                    { "element": "g[data-cell-id=step2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
-                                    { "element": "g[data-cell-id=step3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] },
-                                    { "element": "g[data-cell-id=step4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "4"} ] },
-                                    { "element": "g[data-cell-id=step5]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "5"} ] },
-                                    { "element": "g[data-cell-id=step6]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "6"} ] }
-                                ]}
-                            -->
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Mettre le curseur</h3>
-                    <h5>Ordres de grandeur</h5>
-                    <div class="r-stretch" data-animate data-load="assets/scale-zones.svg">
-                        <!--
-                            { "setup": [
-                                { "modifier": "function() { resizeToContainer(this);}" },
-                                { "element": "g[data-cell-id=scale-up]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
-                                { "element": "g[data-cell-id=scale-out]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
-                                { "element": "g[data-cell-id=zone-grise]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
                             ]}
                         -->
                     </div>
@@ -1174,22 +1265,27 @@
                 <section>
                     <h3>Cinématique</h3>
                     <h5>Comment les données arrivent au traitement</h5>
-                    <p class="slide-text fragment">
+                    <p class="slide-text fragment" forced-fragment-index="0">
                         <b>Au fil de l'eau (ou <i>streaming</i>)</b> : chaque donnée est un message traité immédiatement, dès sa réception.
                     </p>
                     <div class="r-stretch">
-                        <div class="fragment" data-animate data-load="assets/streaming.svg">
+                        <div class="fragment" data-animate data-load="assets/streaming.svg" forced-fragment-index="0">
                             <!--
                                 { "setup": [
-                                    { "modifier": "function() { resizeToContainer(this);}" }
+                                    { "modifier": "function() { resizeToContainer(this);}" },
+                                    { "element": "g[data-cell-id=message1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "1"} ] },
+                                    { "element": "g[data-cell-id=message2]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "2"} ] },
+                                    { "element": "g[data-cell-id=message3]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "3"} ] },
+                                    { "element": "g[data-cell-id=message4]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "4"} ] },
+                                    { "element": "g[data-cell-id=message5]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "5"} ] }
                                 ]}
                             -->
                         </div>
                     </div>
-                    <p class="slide-text fragment">
+                    <p class="slide-text fragment" forced-fragment-index="6">
                          Les messages sont le plus souvent indépendants entre eux et on ne contrôle pas leur ordre d'arrivée.
                     </p>
-                    <div class="slide-text fragment">
+                    <div class="slide-text fragment" forced-fragment-index="7">
                         <p>
                             Exemples :
                         </p>
@@ -1199,7 +1295,7 @@
                             <li>Remontée d'une mesure de capteur</li>
                         </ul>
                     </div>
-                    <p class="slide-text note fragment">
+                    <p class="slide-text note fragment" forced-fragment-index="8">
                         <u>NB</u> : les deux cinématiques peuvent être combinées : stockage au fil de l'eau et traitement par lots après accumulation.
                     </p>
                 </section>
@@ -1343,86 +1439,7 @@
                 </section>
 
                 <section>
-                    <h3>Robustesse et fiabilité</h3>
-                    <div class="r-stretch slide-text two-columns">
-                        <div data-animate data-load="assets/question.svg">
-                            <!--
-                                { "setup": [
-                                    { "modifier": "function() { this.transform({ scale: 1.5, translateX: 50 }); }" }
-                                ]}
-                            -->
-                        </div>
-                        <div class="bigger">
-                            <p>
-                                Fondamentalement, une plateforme big data stocke et manipule des données.
-                            </p>
-                            <p class="standout">
-                                Que peut-il se passer d'imprévu, et comment y remédier ?
-                            </p>
-                        </div>
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Robustesse et fiabilité</h3>
-                    <div class="r-stretch slide-text">
-                        <p class="fragment" data-fragment-index="0">
-                            Nous avons vu que les plateformes big data sont distribuées. Leur taille augmente la probabilité qu'un incident affecte un noeud.
-                        </p>
-                        <p class="fragment" data-fragment-index="1">
-                            Par exemple :
-                        </p>
-                        <ul>
-                            <li class="fragment" data-fragment-index="1"><b>Stockage</b> : crash d'un disque, ou d'un serveur qui en contient un</li>
-                            <li class="fragment" data-fragment-index="2"><b>Calcul</b> : défaillance d'un processeur, crash d'un noeud de calcul, mémoire pleine</li>
-                            <li class="fragment" data-fragment-index="3"><b>Réseau</b> : panne d'un équipement qui connecte les noeuds entre eux ou à l'extérieur</li>
-                            <li class="fragment" data-fragment-index="4"><b>Code des traitements</b> : bug, mauvaise gestion de données imprévues</li>
-                        </ul>
-                    </div>
-                    <div data-animate data-load="assets/robustesse.svg" class="fragment" data-fragment-index="4">
-                        <!--
-                            { "setup": [
-                                { "modifier": "function() { this.transform({ scale: .5 }); }
-                            ]}
-                        -->
-                    </div>
-                </section>
-
-                <section>
-                    <h3>Robustesse et fiabilité</h3>
-                    <h5>Point de vue de la plateforme</h5>
-                    <div class="r-stretch slide-text two-columns">
-                        <div class="bigger">
-                            <p class="fragment" forced-data-index="0">
-                                La réponse est la <b>redondance</b>. Elle sert à atteindre l'idéal de <b>haute disponibilité</b>
-                            </p>
-                            <p class="fragment" forced-data-index="1">
-                                <u>Pour le stockage</u> : les données sont répliquées plusieurs fois et réparties sur les noeuds de stockage.
-                            </p>
-                            <p class="fragment" forced-data-index="2">
-                                <u>Pour le calcul</u> : en cas de défaillance, tout ou partie du traitement est <b>rejouée</b> sur un autre noeud de calcul. Les points de reprise servent à ne pas repartir de zéro.
-                            </p>
-                            <p class="fragment" forced-data-index="3">
-                                <u>Pour le réseau</u> : le matériel est dupliqué.
-                            </p>
-                        </div>
-                        <div>
-                            <div class="fragment" forced-fragment-index="1" data-animate data-load="assets/redondance.svg">
-                                <!--
-                                    { "setup": [
-                                        { "modifier": "function() { resizeToContainer(this);}" },
-                                        { "element": "g[data-cell-id=stockage]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] },
-                                        { "element": "g[data-cell-id=calcul]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
-                                    ]}
-                                -->
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                
-                <section>
-                    <h3>Robustesse et fiabilité</h3>
-                    <h5>Point de vue du traitement (i.e. de l'utilisateur)</h5>
+                    <h3>Gestion des erreurs</h3>
                     <div class="slide-text">
                         <p>
                             Il est important de distinguer <b>deux types d'erreurs</b> :
@@ -1463,8 +1480,20 @@
                     </div>
                     <div class="slide-text">
                         <p class="fragment" forced-fragment-index="4">
-                            Les workflows sont pris en charge par un ordonnanceur sur la plateforme, qui les déclenchent lorsque nécessaire et assure le bon enchaînement des étapes.
+                            Les workflows sont pris en charge par un ordonnanceur sur la plateforme, qui les déclenchent lorsque nécessaire et assure le bon enchaînement des étapes. Les étapes indépendantes peuvent être exécutées en parallèle.
                         </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Synthèse</h3>
+                    <div class="slide-text r-stretch synthese">
+                        <ul>
+                            <li>La performance d'un traitement peut se mesurer de différentes manières</li>
+                            <li>Le volume de données joue un rôle central et on peut l'estimer</li>
+                            <li>Ecrire un traitement peut être compliqué : parallélisme, cinématique, sémantique et gestion des erreurs</li>
+                            <li>Le workflow est un moyen de découper un traitement complexe en étapes simples</li>
+                        </ul>
                     </div>
                 </section>
 
