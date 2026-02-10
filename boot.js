@@ -1,6 +1,6 @@
 resizeToContainer = function(svg) {
-    svg.attr("width", "");
-    svg.attr("height", "");
+    //svg.attr("width", "");
+    //svg.attr("height", "");
     svg.attr("viewbox", "");
 };
 

@@ -19,9 +19,9 @@ cd cours
 sed -e 's/fragment/frgmt/g' < index.html > index_nofrag.html
 ```
 
-Ensuite, ouvrir http://localhost:8000/cours/index_nofrag.html?print-pdf dans Chrome et imprimer avec les options suivantes :
-- _Margins: None_
-- _Options_: Background graphics
+Ensuite, ouvrir http://localhost:8000/cours/index_nofrag.html?print-pdf dans Edge et imprimer en "Save to PDF" avec les options suivantes :
+- _Margins : None_
+- _Options : Background graphics_
 
 (instructions tirées de https://revealjs.com/pdf-export/ avec l'aide de https://github.com/hakimel/reveal.js/issues/3428)
 

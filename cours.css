@@ -92,9 +92,4 @@ code {
 .synthese > ul > li {
     margin-top: 30px;
 }
-html.print-pdf .reveal img {
-    max-height: 80% !important;
-}
-html.print-pdf .reveal svg {
-    max-height: 80% !important;
-}
+
