@@ -53,6 +53,9 @@
 .deduction {
     list-style-type: "⇒ ";
 }
+.interline {
+    margin-top: 20px;
+}
 table {
     font-size: 20px;
 }

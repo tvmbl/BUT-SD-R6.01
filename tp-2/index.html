@@ -1,0 +1,203 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="../dist/reveal.css"/>
+        <link rel="stylesheet" href="../dist/theme/white.css"/>
+        <link rel="stylesheet" href="../cours.css"/>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section>
+                    <h4>Big Data : Enjeux, stockage et extraction</h4>
+                    <h5>TP 2 : MapReduce</h5>
+                    <div class="r-stretch slide-text">
+                        <p>
+                            <b>Objectif</b> : Comprendre l'algorithme MapReduce, brique fondatrice des traitements Big Data.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Présentation de MapReduce</h3>
+                    <div class="slide-text">
+                        <p>
+                            <b>Principe</b> : MapReduce est un algorithme de traitement parallèle sur des données volumineuses. C'est aussi un cadre de programmation assez strict, raison pour laquelle on ne le programme pas directement.
+                        </p>
+                        <p>
+                            <span class="fragment" forced-fragment-index="0">
+                                Les données à traiter sont découpées en <i>splits</i>.
+                            </span>
+                            <span class="fragment" forced-fragment-index="1">
+                                Les splits sont traités en parallèle lors d'une phase de <b>Map</b>.
+                            </span>
+                            <span class="fragment" forced-fragment-index="2">
+                                Une phase de <b>Reduce</b> (en général non parallèle) combine les résultats intermédiaires pour produire le résultat.
+                            </span>
+                        </p>
+                    </div>
+                    <div class="r-stretch" data-animate data-load="../assets/mapreduce.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=entree]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=mapphase]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=reducephase]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>MapReduce en mode manuel</h3>
+                    <div class="r-stretch slide-text" data-animate data-load="../assets/applico.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=agent1]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=agents23]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=postits]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=coordo]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Que s'est-il passé ?</h3>
+                    <h5>Où avons-nous perdu du temps ? (1)</h5>
+                    <div class="r-stretch slide-text">
+                        <div class="fragment">
+                            <p class="emphasis">
+                                Dans la distribution initiale des fiches, avant le début des calculs
+                            </p>
+                            <p>
+                                Un traitement distribué a un coût incompressible lié au démarrage des agents d'exécution par le coordinateur.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Que s'est-il passé ?</h3>
+                    <h5>Où avons-nous perdu du temps ? (2)</h5>
+                    <div class="r-stretch slide-text">
+                        <div class="fragment">
+                            <p class="emphasis">
+                                Dans la transmission des Post-It vers le coordinateur
+                            </p>
+                            <p>
+                                L'échange des informations a aussi un coût, proportionnel à son volume.
+                            </p>
+                            <p>
+                                En pratique, il s'agit principalement des entrées/sorties : réseau, disque, ...
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Que s'est-il passé ?</h3>
+                    <h5>Où avons-nous perdu du temps ? (3)</h5>
+                    <div class="r-stretch slide-text">
+                        <div class="fragment">
+                            <p class="emphasis">
+                                Dans l'écriture et la lecture des nombres en toutes lettres sur les Post-It
+                            </p>
+                            <p>
+                                La transmission d'informations nécessite une mise en forme : c'est la <b>sérialisation/désérialisation</b>.
+                            </p>
+                            <p>
+                                Elle a un coût proportionnel au volume d'informations, et à la complexité de la représentation.
+                            </p>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Que se serait-il passé si...</h3>
+                    <div class="r-stretch slide-text">
+                        <p class="emphasis">
+                            ... nous avions été 2 fois plus nombreux pour traiter le même volume (2 nombres par fiche au lieu de 4) ?
+                        </p>
+                        <div class="fragment">
+                            <ul>
+                                <li class="deduction">
+                                    Plus de cerveaux n'auraient pas suffi à compenser le temps de démarrage supérieur et les échanges plus nombreux. Le temps de calcul efficace est trop faible pour que ça en vaille la peine.
+                                </li>
+                                <li class="deduction interline">
+                                    On aurait même augmenté les échanges et donc perdu plus de temps.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Que se serait-il passé si...</h3>
+                    <div class="r-stretch slide-text">
+                        <p class="emphasis">
+                            ... il y avait eu 400 nombres par fiche à additionner ?
+                        </p>
+                        <div class="fragment">
+                            <ul>
+                                <li class="deduction">
+                                    C'est le calcul qui aurait été le goulet d'étranglement, à cause du volume à traiter par chacun(e). Les échanges ne seraient plus significatifs.
+                                </li>
+                                <li class="deduction interline">
+                                    Le temps de calcul total serait devenu à peu près proportionnel au volume de données à traiter.
+                                </li>
+                                <li class="deduction interline">
+                                    Attention, pour des très gros calculs on se remet à perdre du temps, pour des points de reprise par exemple (échanges avec un système de stockage).
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Que se serait-il passé si...</h3>
+                    <div class="r-stretch slide-text">
+                        <p class="emphasis">
+                            ... l'un d'entre nous avait dû répondre à un appel urgent en plein calcul ?
+                        </p>
+                        <div class="fragment">
+                            <ul>
+                                <li class="deduction">
+                                    Une partie du traitement aurait été mise en pause, ralentissant l'arrivée du résultat final.
+                                </li>
+                                <li class="deduction interline">
+                                    Le coordinateur peut décider de donner la tâche interrompue à un autre agent (rejeu), si le premier ne revient pas assez vite.
+                                </li>
+                                <li class="deduction interline">
+                                    La probabilité d'un tel événement augmente avec le nombre d'agents.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Le TP de programmation</h3>
+                    <div class="r-stretch slide-text">
+                        <p>
+                            Récupérer le notebook (<code>TP2.ipynb</code>) et les données (<code>data.zip</code>) du TP sur <a href="https://github.com/tvmbl/BUT-SD-R6.01/tree/main/tp-2">https://github.com/tvmbl/BUT-SD-R6.01/tree/main/tp-2</a>.
+                        </p>
+                        <p>
+                            Dézipper <code>data.zip</code> dans le même répertoire que le notebook.
+                        </p>
+                        <p>
+                            Ouvrir le notebook dans Jupyter et suivre les instructions.
+                        </p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+        <script src="../dist/reveal.js"></script>
+        <script src="../dist/plugins/loadcontent/plugin.js"></script>
+        <script src="../dist/plugins/animate/plugin.js"></script>
+        <script src="../dist/plugins/animate/svg.min.js"></script>
+        <script src="../boot.js"></script>
+    </body>
+</html>
