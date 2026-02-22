@@ -95,4 +95,6 @@ code {
 .synthese > ul > li {
     margin-top: 30px;
 }
-
+ol li::marker {
+    font-weight: bold;
+}
