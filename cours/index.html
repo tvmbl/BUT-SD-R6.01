@@ -1504,6 +1504,220 @@
                     </p>
                 </section>
 
+                <section>
+                    <h2>Le principe</h2>
+                    <p class="slide-text">
+                        <b>Sous-traiter</b> une partie de son système d'information à un <b>fournisseur (<i>provider</i>)</b>. Le cloud propose des briques qu'on combine pour créer par exemple des applications.
+                    </p>
+                    <p class="slide-text">
+                        Le provider est payé à l'usage des ressources informatiques : temps de calcul, espace stocké, nombre d'utilisateurs pour les licences logicielles, ...
+                    </p>
+                    <div class="r-stretch" data-animate data-load="../assets/cloud.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h2>"Saveurs" de cloud</h2>
+                    <div class="r-stretch" data-animate data-load="../assets/xaas.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=iaas]", "modifier": "attr", "parameters": [ {"class": "fragment fade-right", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=paas]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=saas]", "modifier": "attr", "parameters": [ {"class": "fragment fade-left", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=focus]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "3"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Cloud public, cloud privé</h2>
+                    <p class="slide-text fragment" forced-data-index="0">
+                        <b>Cloud public</b> : utilise du matériel partagé par les clients du provider (colocation). C'est le domaine principal des AWS, Google, Microsoft, etc.
+                    </p>
+                    <p class="slide-text fragment" forced-data-index="1">
+                        <b>Cloud privé</b> : utilise du matériel entièrement dédié à l'entreprise cliente du provider. Plus cher mais protège plus des fuites de données grâce à l'isolation complète.
+                    </p>
+                    <div class="r-stretch" data-animate data-load="../assets/public-prive.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=public]", "modifier": "attr", "parameters": [ {"class": "fragment fade-left", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=prive]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "1"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Souveraineté</h2>
+                    <div class="r-stretch slide-text two-columns">
+                        <div class="bigger">
+                            <p class="fragment" data-fragment-index="0">
+                                Piliers de la <b>souveraineté</b> pour les entreprises à enjeu fort :
+                                <ul class="fragment" data-fragment-index="0">
+                                    <li>hébergement cloud en Europe voire en France</li>
+                                    <li>fournisseurs européens voire français</li>
+                                    <li>open source pour faciliter le changement de provider</li>
+                                </ul>
+                            </p>
+                            <p class="fragment" data-fragment-index="1">
+                                <u>Exemples</u> : données de santé (DMP), secret industriel (Airbus), militaire, administration.
+                            </p>
+                            <p class="fragment" data-fragment-index="2">
+                                L'entreprise peut avoir un partie de son système sur un cloud public, et une autre sur un cloud souverain.
+                            </p>
+                        </div>
+                        <div>
+                            <img class="fragment" data-fragment-index="0" src="../assets/europe.png" width="100%"/>
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Quelques providers</h2>
+                    <div class="r-stretch" data-animate data-load="../assets/providers.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=iaas]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=paas]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=saas]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "2"} ] }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Vocabulaire du cloud public</h2>
+                    <div class="r-stretch slide-text">
+                        <p class="fragment">
+                            <b>Service</b> : produit proposé par le provider.<br/>
+                            Exemples : machines virtuelles (VM), MongoDB, stockage objet.
+                        </p>
+                        <p class="fragment">
+                            <b>Ressources</b> : exemplaires de services utilisés par un client.<br/>
+                            Exemples : 5 VM de 4 coeurs et 32 Go de RAM, une base MongoDB, 3 "buckets" d'objets.
+                        </p>
+                        <p class="fragment">
+                            <b><i>Identity and Access Management</i> (IAM)</b> : gestion des accès et des permissions aux ressources et services.
+                        </p> 
+                        <p class="fragment">
+                            <u>Rôle de l'architecte</u> : concevoir une application sous forme de ressources connectées entre elles, en piochant dans le catalogue des services du provider.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>La jungle des services</h2>
+                    <p class="slide-text">
+                        Exemple de Microsoft Azure : plus de 200 services (c'est pareil chez les concurrents)
+                    </p>
+                    <img class="r-stretch" src="../assets/azure.png" width="100%"/>
+                </section>
+
+                <section>
+                    <h2>Zoom sur le stockage objet</h2>
+                    <div class="r-stretch two-columns slide-text">
+                        <div class="bigger">
+                            <p class="fragment" data-fragment-index="0">
+                                Stockage de fichiers (appelés <i>objets</i> ou <i>blobs</i>) indifférenciés et en nombre illimité, pour tous besoins.
+                            </p>
+                            <p class="fragment" data-fragment-index="1">
+                                Ce stockage est un choix fréquent pour les <b>data lakes</b>.
+                            </p>
+                            <p class="fragment" data-fragment-index="2">
+                                Les blobs sont organisés en collections appelés <i>buckets</i>.
+                            </p>
+                        </div>
+                        <div data-animate data-load="../assets/buckets.svg" class="fragment" data-fragment-index="2">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Zoom sur les lambdas</h2>
+                    <div class="r-stretch two-columns slide-text">
+                        <div>
+                            <p>
+                                Une <b>lambda</b> (ou fonction <i>serverless</i>) est une unité de code déployée comme ressource sur le cloud.
+                            </p>
+                            <p class="fragment">
+                                Elle se déclenche sur événement, et peut s'exécuter en plusieurs exemplaires indépendants. Le provider crée automatiquement les ressources de calcul.
+                            </p>
+                        </div>
+                        <div data-animate data-load="../assets/lambda.svg">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Zoom sur les conteneurs</h2>
+                    <div class="r-stretch two-columns slide-text">
+                        <div class="bigger">
+                            <p class="fragment" data-fragment-index="0">
+                                Les <b>conteneurs</b> (<i>containers</i>) embarquent du code et toutes ses dépendances.
+                            </p>
+                            <p class="fragment" data-fragment-index="1">
+                                Un conteneur peut alors s'exécuter n'importe où : PC Windows, Linux, cloud (par ex. sous forme de lambda), ...
+                            </p>
+                            <p class="fragment" data-fragment-index="2">
+                                Le produit le plus populaire pour empaqueter est Docker.
+                            </p>
+                            <p class="fragment" data-fragment-index="2">
+                                Pour exécuter des flottes de conteneurs interdépendants, on peut utiliser Kubernetes.
+                            </p>
+                        </div>
+                        <div data-animate data-load="../assets/containers.svg" class="fragment" data-fragment-index="2">
+                            <!--
+                                { "setup": [
+                                    { "modifier": "function() { resizeToContainer(this);}" }
+                                ]}
+                            -->
+                        </div>
+                    </div>
+                </section>
+
+                <section>
+                    <h2>Exemple d'application cloud</h2>
+                    <div clas="r-stretch" data-animate data-load="../assets/cloud_app.svg">
+                        <!--
+                            { "setup": [
+                                { "modifier": "function() { resizeToContainer(this);}" }
+                            ]}
+                        -->
+                    </div>
+                </section>
+
+                <section>
+                    <h3>Synthèse</h3>
+                    <div class="slide-text r-stretch synthese">
+                        <ul>
+                            <li>Le cloud offre des services variés pour construire des applications sur mesure</li>
+                            <li>L'architecte conçoit les solutions en assemblant des ressources IaaS, PaaS ou SaaS</li>
+                            <li>Les catalogues des providers se ressemblent, mais chacun a ses particularités</li>
+                            <li>Les choix sont guidés par des critères économiques mais aussi de souveraineté</li>
+                            <li>Attention, les règles de facturation sont complexes et les prix montent vite ! Il faut surveiller sa consommation de ressources</li>
+                        </ul>
+                    </div>
+                </section>
+
             </div>
         </div>
         <script src="../dist/reveal.js"></script>
