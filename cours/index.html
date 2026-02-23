@@ -1760,20 +1760,20 @@
                 <section>
                     <h3>Quelques enjeux de l'usage responsable</h3>
                     <div class="r-stretch slide-text">
-                        <p>
+                        <p class="fragment">
                             Emprise de plus en plus importante du numérique dans nos vies
                         </p>
-                        <p>
-                            Des données confiées explicitement ou implicitement (par notre comportement) à des acteurs très nombreux, qui en tirent du revenu
+                        <p class="fragment">
+                            Des données confiées explicitement ou implicitement (par notre comportement) à des acteurs opaques
                         </p>
-                        <p>
-                            Généralisation très forte de l'IA générative, qui reste opaque et échappe encore aux critères de souveraineté
+                        <p class="fragment">
+                            Généralisation très forte de l'IA générative, qui échappe encore aux critères de souveraineté
                         </p>
-                        <p>
+                        <p class="fragment">
                             Une pression croissante sur l'environnement
                         </p>
-                        <p>
-                            Sans parler des menaces liées à la cybersécurité, l'augmentation des usages suscitant de plus en plus de convoitises
+                        <p class="fragment">
+                            Menaces liées à la cybersécurité, l'augmentation des usages suscitant de plus en plus de convoitises
                         </p>
                     </div>
                 </section>
@@ -1788,18 +1788,18 @@
                     <h3>Le RPGD</h3>
                     <div class="r-stretch two-columns slide-text">
                         <div class="bigger">
-                            <p>
+                            <p class="fragment" data-fragment-index="0">
                                 <b>R</b>èglement <b>G</b>énéral sur la <b>P</b>rotection des <b>D</b>onnées (GDPR en anglais)
                             </p>
-                            <p>
-                                Encadre l'usage des données personnelles et sensibles en Europe, et hors d'Europe pour les ressortissants européens
+                            <p class="fragment" data-fragment-index="1">
+                                Il encadre l'usage des données personnelles et sensibles en Europe, et hors d'Europe pour les ressortissants européens
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="2">
                                 Analogue américain : le Cloud Act
                             </p>
                         </div>
                         <div>
-                            <img src="../assets/drapeau.png" width="100%"/>
+                            <img src="../assets/drapeau.png" width="100%" class="fragment" data-fragment-index="1"/>
                         </div>
                     </div>
                 </section>
@@ -1825,11 +1825,15 @@
                     <div class="r-stretch" data-animate data-load="../assets/perso.svg">
                         <!--
                             { "setup": [
-                                { "modifier": "function() { resizeToContainer(this);}" }
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=perso]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "0"} ] },
+                                { "element": "g[data-cell-id=perso-heberg]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=sensibles]", "modifier": "attr", "parameters": [ {"class": "fragment fade-in", "data-fragment-index": "2"} ] },
+                                { "element": "g[data-cell-id=sensibles-heberg]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "3"} ] }
                             ]}
                         -->
                     </div>
-                    <p class="slide-text">
+                    <p class="slide-text fragment" forced-fragment-index="4">
                         L'usage de ces données est encadré, qu'elles soient informatisées ou non, traitées de manière automatique ou non, ou même si elles sont collectées sans être exploitées
                     </p>
                 </section>
@@ -1838,17 +1842,17 @@
                     <h3>La CNIL</h3>
                     <div class="r-stretch two-columns slide-text">
                         <div class="bigger">
-                            <p>
+                            <p class="fragment" data-fragment-index="0">
                                 La <b>Commission Nationale de l'Informatique et des Libertés</b> veille entre autres à la bonne application du RGPD en France.
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="1">
                                 Elle peut être saisie par les individus qui souhaitent faire valoir leur <b>droit de consultation et de rectification</b> de leurs données.
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="2">
                                 Une entreprise ou un organisme traitant des données personnelles doit pouvoir prouver qu'il respecte la réglementation. La preuve est le <b>registre des traitements</b>.
                             </p>
                         </div>
-                        <div data-animate data-load="../assets/registre.svg">
+                        <div data-animate data-load="../assets/registre.svg" class="fragment fade-left" data-fragment-index="2">
                             <!--
                                 { "setup": [
                                     { "modifier": "function() { resizeToContainer(this);}" }
@@ -1876,17 +1880,19 @@
 
                 <section>
                     <h3>Anonymisation et pseudonymisastion</h3>
-                    <p class="slide-text">
+                    <p class="slide-text fragment" forced-fragment-index="0">
                         <b>Principe commun</b> : empêcher l'identification des personnes à partir des données récoltées. Ces pratiques peuvent être exigées par le RGPD.
                     </p>
                     <div class="r-stretch" data-animate data-load="../assets/anonym.svg">
                         <!--
                             { "setup": [
-                                { "modifier": "function() { resizeToContainer(this);}" }
+                                { "modifier": "function() { resizeToContainer(this);}" },
+                                { "element": "g[data-cell-id=pseudo]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "1"} ] },
+                                { "element": "g[data-cell-id=ano]", "modifier": "attr", "parameters": [ {"class": "fragment fade-up", "data-fragment-index": "2"} ] }
                             ]}
                         -->
                     </div>
-                    <p class="slide-text">
+                    <p class="slide-text fragment" forced-fragment-index="3">
                         ⚠️ Identifier une personne ne signifie pas nécessairement retrouver son nom ! Cela peut consister à la "cibler" anonymement pour des usages non prévus par le traitement initial.
                     </p>
                 </section>
@@ -1895,18 +1901,18 @@
                     <h3>L'AI Act</h3>
                     <div class="r-stretch two-columns slide-text">
                         <div class="bigger">
-                            <p>
+                            <p class="fragment" data-fragment-index="0">
                                 <b>Règlement européen</b> encadrant la mise sur le marché de solutions d'intelligence artificielle
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="1">
                                 Il impose des exigences à de tels produits, en fonction de leur niveau de risque.
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="2">
                                 Certains usages n'y sont pas soumis : militaire, recherche scientifique, usages non professionnels.
                             </p>
                         </div>
                         <div>
-                            <img src="../assets/drapeau.png" width="100%"/>
+                            <img src="../assets/drapeau.png" width="100%" class="fragment" data-fragment-index="0"/>
                         </div>
                     </div>
                 </section>
@@ -1922,49 +1928,49 @@
                             </tr>
                             <tr>
                                 <th class="hard">Inacceptable</th>
-                                <td data-fragment-index="0">
+                                <td class="fragment" data-fragment-index="0">
                                     Reconnaissance faciale<br/>
                                     Manipulation
                                 </td>
-                                <td data-fragment-index="2">
+                                <td class="fragment"  data-fragment-index="0">
                                     Interdiction pure et simple
                                 </td>
                             </tr>
                             <tr>
                                 <th class="hard">Haut</th>
-                                <td data-fragment-index="0">
+                                <td class="fragment"  data-fragment-index="1">
                                     Santé, éducation<br/>
                                     Infrastructures vitales
                                 </td>
-                                <td data-fragment-index="2">
+                                <td class="fragment"  data-fragment-index="1">
                                     Transparence, qualité, sécurité, supervision humaine (évaluation continue)
                                 </td>
                             </tr>
                             <tr>
                                 <th class="moderate">Généraliste</th>
-                                <td data-fragment-index="0">
+                                <td class="fragment"  data-fragment-index="2">
                                     ChatGPT et consorts
                                 </td>
-                                <td data-fragment-index="2">
+                                <td class="fragment"  data-fragment-index="2">
                                     Selon capacité et risques estimés, et type de licence
                                 </td>
                             </tr>
                             <tr>
                                 <th class="easy">Limité</th>
-                                <td data-fragment-index="0">
+                                <td class="fragment"  data-fragment-index="3">
                                     Manipulation d'images, sons ou vidéos
                                 </td>
-                                <td data-fragment-index="2">
+                                <td class="fragment"  data-fragment-index="3">
                                     Transparence
                                 </td>
                             </tr>
                             <tr>
                                 <th class="easy">Minimal</th>
-                                <td data-fragment-index="0">
+                                <td class="fragment"  data-fragment-index="4">
                                     Jeux vidéos<br/>
                                     Filtres de spam
                                 </td>
-                                <td data-fragment-index="2">
+                                <td class="fragment"  data-fragment-index="4">
                                     Aucune
                                 </td>
                             </tr>
@@ -1982,21 +1988,21 @@
                     <h3>Sécurisation</h3>
                     <div class="r-stretch two-columns slide-text">
                         <div class="bigger">
-                            <p>
+                            <p class="fragment" data-fragment-index="0">
                                 Toutes mesures prises pour protéger les données des usages indus : fuites, identification de personnes, détournement de finalité, ...
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="1">
                                 Ne concerne pas que les données personnelles ! Exemples :
-                                <ul>
-                                    <li>Secrets des affaires</li>
-                                    <li>Secrets industriels</li>
-                                </ul>
                             </p>
-                            <p>
+                            <ul class="fragment" data-fragment-index="1">
+                                <li>Secrets des affaires</li>
+                                <li>Secrets industriels</li>
+                            </ul>
+                            <p class="fragment" data-fragment-index="2">
                                 Elle fait partie de la gouvernance des données
                             </p>
                         </div>
-                        <div data-animate data-load="../assets/securisation.svg">
+                        <div data-animate data-load="../assets/securisation.svg" class="fragment fade-left" data-fragment-index="2">
                             <!--
                                 { "setup": [
                                     { "modifier": "function() { resizeToContainer(this);}" }
@@ -2009,19 +2015,19 @@
                 <section>
                     <h3>Quelques pratiques indispensables</h3>
                     <div class="r-stretch slide-text">
-                        <p>
+                        <p class="fragment">
                             ☑️ Protection physique des infrastructures / data centers
                         </p>
-                        <p>
+                        <p class="fragment">
                             ☑️ Chiffrement des données au repos et en mouvement (systématique sur le cloud)
                         </p>
-                        <p>
+                        <p class="fragment">
                             ☑️ Contrôles d'accès : authentification des personnes et des machines, autorisations de type "moindre privilège"
                         </p>
-                        <p>
+                        <p class="fragment">
                             ☑️ Audit régulier des accès
                         </p>
-                        <p>
+                        <p class="fragment">
                             ☑️ Traçage (log) des opérations sensibles : qui, quoi, quand, comment
                         </p>
                     </div>
@@ -2037,21 +2043,21 @@
                     <h3>Eco-conception ?</h3>
                     <div class="r-stretch two-columns slide-text">
                         <div class="bigger">
-                            <p>
+                            <p class="fragment" data-fragment-index="0">
                                 S'inscrit dans la démarche générale de <b>réduction de notre empreinte environnementale</b>.
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="1">
                                 Elle s'attaque en particulier à l'empreinte du numérique, qui croît à un rythme soutenu.
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="2">
                                 Nos "besoins" numériques imposent une pression à plusieurs niveaux :
-                                <ul>
-                                    <li><b>Matières premières</b> pour la fabrication du matériel : pollution, exploitation humaine, risques sur la souveraineté</li>
-                                    <li><b>Emissions de gaz à effet de serre (GES)</b> : sources d'énergie carbonées pour la fabrication et l'usage
-                                </ul>
                             </p>
+                            <ul class="fragment" data-fragment-index="2">
+                                <li><b>Matières premières</b> pour la fabrication du matériel : pollution, exploitation humaine, risques sur la souveraineté</li>
+                                <li><b>Emissions de gaz à effet de serre (GES)</b> : sources d'énergie carbonées pour la fabrication et l'usage
+                            </ul>
                         </div>
-                        <div data-animate data-load="../assets/empreinte.svg">
+                        <div data-animate data-load="../assets/empreinte.svg" class="fragment fade-left" data-fragment-index="2">
                             <!--
                                 { "setup": [
                                     { "modifier": "function() { resizeToContainer(this);}" }
@@ -2065,17 +2071,17 @@
                     <h3>Les grands leviers</h3>
                     <div class="r-stretch two-columns slide-text">
                         <div class="bigger">
-                            <p>
-                                C'est la <b>fabrication des équipements</b> (serveurs, et surtout objets connectés et terminaux des utilisateurs) qui émet.
+                            <p class="fragment" data-fragment-index="0">
+                                C'est la <b>fabrication des équipements</b> (serveurs, et surtout objets connectés et terminaux des utilisateurs) qui pénalise l'environnement.
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="1">
                                 Notre levier principal n'est pas d'optimiser des traitements mais de <b>limiter les fonctionnalités gourmandes</b> qui exigent des terminaux de plus en plus puissants.
                             </p>
-                            <p>
+                            <p class="fragment" data-fragment-index="2">
                                 Côté serveur, le cloud évite d'acheter de nouveaux ordinateurs.
                             </p>
                         </div>
-                        <div data-animate data-load="../assets/empreinte_comparee.svg">
+                        <div data-animate data-load="../assets/empreinte_comparee.svg" class="fragment" data-fragment-index="0">
                             <!--
                                 { "setup": [
                                     { "modifier": "function() { resizeToContainer(this);}" }
@@ -2098,12 +2104,12 @@
                         </div>
                         <div class="bigger">
                             <ol>
-                                <li class="interline">A-t-on besoin de ces fonctionnalités ?</li>
-                                <li class="interline">A-t-on besoin de machine learning ? De tant données et de calcul distribué ?</li>
-                                <li class="interline">Si oui, faut-il entraîner un modèle ou peut-on en utiliser un déjà fait ?</li>
-                                <li class="interline">Si on dépend d'un service tiers, est-il lui-même "sobre" (IA cachée, ...) ?</li>
-                                <li class="interline">Les infrastructures sont-elles bien utilisées ?</li>
-                                <li class="interline">Peut-on optimiser le traitement ?</li>
+                                <li class="interline fragment">A-t-on besoin de ces fonctionnalités ?</li>
+                                <li class="interline fragment">A-t-on besoin de machine learning ? De tant données et de calcul distribué ?</li>
+                                <li class="interline fragment">Si oui, faut-il entraîner un modèle ou peut-on en utiliser un déjà fait ?</li>
+                                <li class="interline fragment">Si on dépend d'un service tiers, est-il lui-même "sobre" (IA cachée, ...) ?</li>
+                                <li class="interline fragment">Les infrastructures sont-elles bien utilisées ?</li>
+                                <li class="interline fragment">Peut-on optimiser le traitement ?</li>
                             </ol>
                         </div>
                     </div>
@@ -2116,31 +2122,35 @@
                             Classer ces usages du plus sobre au plus gourmand :
                         </p>
                         <table width="100%">
-                            <tr>
-                                <th>Rang</th>
-                                <th>Usage</th>
-                                <th>Puissance consommée<br/>(estimation)</th>
-                            </tr>
-                            <tr>
-                                <td><b>3</b></td>
-                                <td>Utiliser une machine virtuelle sur le cloud</td>
-                                <td>420 W</td>
-                            </tr>
-                            <tr>
-                                <td><b>1</b></td>
-                                <td>Stocker 1 To de données sur le cloud</td>
-                                <td>3,6 W</td>
-                            </tr>
-                            <tr>
-                                <td><b>4</b></td>
-                                <td>Servir les utilisateurs de ChatGPT</td>
-                                <td>23 500 000 W (23,5 MW)</td>
-                            </tr>
-                            <tr>
-                                <td><b>2</b></td>
-                                <td>utiliser son cerveau :-)</td>
-                                <td>20 à 40 W</td>
-                            </tr>
+                            <thead>
+                                <tr>
+                                    <th>Rang</th>
+                                    <th>Usage</th>
+                                    <th>Puissance consommée<br/>(estimation)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="bigger-text">
+                                <tr>
+                                    <td class="fragment" data-fragment-index="2"><b>3</b></td>
+                                    <td>Utiliser une machine virtuelle sur le cloud</td>
+                                    <td class="fragment" data-fragment-index="2">420 W</td>
+                                </tr>
+                                <tr>
+                                    <td class="fragment" data-fragment-index="0"><b>1</b></td>
+                                    <td>Stocker 1 To de données sur le cloud</td>
+                                    <td class="fragment" data-fragment-index="0">3,6 W</td>
+                                </tr>
+                                <tr>
+                                    <td class="fragment" data-fragment-index="3"><b>4</b></td>
+                                    <td>Servir les utilisateurs de ChatGPT</td>
+                                    <td class="fragment bigger-text" data-fragment-index="3">23 500 000 W (23,5 MW)</td>
+                                </tr>
+                                <tr>
+                                    <td class="fragment" data-fragment-index="1"><b>2</b></td>
+                                    <td>utiliser son cerveau :-)</td>
+                                    <td class="fragment" data-fragment-index="1">20 à 40 W</td>
+                                </tr>
+                            </tbody>
                         </table>
                     </div>
                 </section>
@@ -2148,23 +2158,42 @@
                 <section>
                     <h3>Estimer ses émissions de GES</h3>
                     <div class="r-stretch slide-text">
+                        <p class="fragment" data-fragment-index="0">
+                            Les estimations se mesurent en <b>gCO<inf>2</inf>eq</b> ("grammes-équivalent carbone"). Toutes les méthodes sont approximatives.
+                        </p>
+                        <p class="fragment" data-fragment-index="1">
+                            ✅ <b>Instrumenter le code</b>, par exemple avec <a href="https://codecarbon.io/">Code Carbon</a> en Python :<br/>
+                        </p>
+                        <p class="equation fragment" data-fragment-index="1">
+                            Emissions = énergie x intensité carbone du mix énergétique
+                        </p>
+                        <p class="fragment" data-fragment-index="2">
+                            ✅ <b>Sur un cloud PaaS</b>, l'estimation n'est pas toujours possible. 
+                        </p>
+                        <p class="fragment" data-fragment-index="2">
+                            La facture reflète l'usage (<i>the smaller the better</i>), et la région d'hébergement est importante à cause du mix énergétique.
+                        </p>
+                        <p class="fragment" data-fragment-index="3">
+                            <u>Mix énergétique</u> : c'est la source de l'approvisionnement électrique du datacenter. Voir par exemple <a href="https://app.electricitymaps.com/">Electricity Maps</a>.
+                        </p>
+                    </div>
+                </section>
+
+                <section>
+                    <h1>MERCI !</h1>
+                </section>
+
+                <section>
+                    <h3>Evaluation écrite</h3>
+                    <div class="r-stretch slide-text">
                         <p>
-                            Ce n'est pas évident mais on peut faire des choses. Les estimations se mesurent en <b>gCO<inf>2</inf>eq</b> ("grammes-équivalent carbone").
+                            Rendez-vous sur <a href="https://github.com/tvmbl/BUT-SD-R6.01-Eval">https://github.com/tvmbl/BUT-SD-R6.01-Eval</a>, pour télécharger le support d'évaluation si vous souhaitez répondre par voie électronique.
                         </p>
                         <p>
-                            ✅ Sur une machine, on peut <b>instrumenter le code</b>, par exemple avec <a href="https://codecarbon.io/">Code Carbon</a> en Python :<br/>
-                            <i>Emissions = énergie x intensité carbone du mix énergétique</i>
+                            Merci d'envoyer les réponses (doc rempli ou mail simple) à <a href="mailto:tvial.octo.com">tvial@octo.com</a>.
                         </p>
                         <p>
-                            ✅ Sur le cloud PaaS, c'est plus compliqué :
-                        </p>
-                        <ul>
-                            <li>on a parfois un tableau de bord des émissions</li>
-                            <li>sinon, on se sert de la facture, qui reflète l'usage</li>
-                            <li>la région d'hébergement joue un rôle sur le mix énergétique</li>
-                        </ul>
-                        <p>
-                            <b>Mix énergétique</b> : c'est la source de l'approvisionnement électrique du datacenter. Voir par exemple <a href="https://app.electricitymaps.com/">Electricity Maps</a>.
+                            Bon courage !
                         </p>
                     </div>
                 </section>

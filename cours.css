@@ -98,3 +98,18 @@ code {
 ol li::marker {
     font-weight: bold;
 }
+.bigger-text {
+    font-size: 30px;
+}
+.equation {
+    font-size: 30px;
+    text-align: center;
+    color: darkblue;
+    padding-bottom: 20px;
+}
+html.print-pdf .reveal img {
+    max-width: 80% !important;
+}
+html.print-pdf .reveal svg {
+    max-width: 80% !important;
+}

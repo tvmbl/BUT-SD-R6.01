@@ -16,13 +16,5 @@ Si besoin de regénérer le PDF...
 ```
 cd cours
 
-sed -e 's/fragment/frgmt/g' < index.html > index_nofrag.html
+docker run --rm -t --net=host -v `pwd`:/slides ghcr.io/astefanutti/decktape reveal http://localhost:8000/cours cours.pdf
 ```
-
-Ensuite, ouvrir http://localhost:8000/cours/index_nofrag.html?print-pdf dans Edge et imprimer en "Save to PDF" avec les options suivantes :
-- _Margins : None_
-- _Options : Background graphics_
-
-(instructions tirées de https://revealjs.com/pdf-export/ avec l'aide de https://github.com/hakimel/reveal.js/issues/3428)
-
-Sur le PDF résultant certaines images sont un peu décalées mais cela reste lisible.
