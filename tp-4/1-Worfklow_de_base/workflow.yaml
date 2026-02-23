@@ -1,0 +1,8 @@
+main:
+    steps:
+    - list_files_to_process:
+        call: googleapis.storage.v1.objects.list
+        args:
+            bucket: ### A CHANGER ###
+            matchGlob: "mp3/*.mp3"
+        result: files_to_process

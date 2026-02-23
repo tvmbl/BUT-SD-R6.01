@@ -1,0 +1,33 @@
+main:
+    steps:
+    - list_files_to_process:
+        call: googleapis.storage.v1.objects.list
+        args:
+            bucket: ### A CHANGER ###
+            matchGlob: "mp3/*.mp3"
+        result: files_to_process
+
+    - process_files:
+        for:
+            value: file_to_process
+            index: i
+            in: ${files_to_process.items}
+            steps:
+                - print:
+                    call: sys.log
+                    args:
+                        text: ${file_to_process.name}
+                - process_file:
+                    call: http.post
+                    args:
+                        url: ### A CHANGER ###
+                        body: ${file_to_process}
+                        auth:
+                            type: OIDC
+                    result: embedding_json
+                - save_embeddings:
+                    call: googleapis.storage.v1.objects.insert
+                    args:
+                        bucket: ### A CHANGER ###
+                        name: ${"vectors/" + file_to_process.name + ".json"}
+                        body: ${embedding_json.body}
