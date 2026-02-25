@@ -4,7 +4,7 @@
 - disposer d'un compte de connexion (du type `compte_xyz@thomasvial.fr`)
 - télécharger quelques fichiers MP3 d'exemples depuis le repo Github (répertoire `tp-4/0-Fichiers_MP3`)
 
-NB : il est conseillé de garder 1 onglet ouvert par service.
+NB : il est conseillé de garder 1 onglet ouvert par service dans la suite car on fait des allers-retours entre les services. Il vaut mieux aussi ouvrir le navigateur en navigation privée pour éviter les conflits avec votre compte GMail éventuel.
 
 
 ## 0. Connexion et première navigation dans GCP
